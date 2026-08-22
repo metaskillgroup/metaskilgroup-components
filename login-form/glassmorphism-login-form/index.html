@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Nexora</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Animated Background Blobs -->
+    <div class="bg-blob blob1"></div>
+    <div class="bg-blob blob2"></div>
+    <div class="bg-blob blob3"></div>
+
+    <div class="wrapper">
+      <!-- Login Form Panel -->
+      <div class="form-panel">
+        <div class="brand">
+          <span class="material-icons-round brand-icon">electric_bolt</span>
+          <span class="brand-name">Nexora</span>
+        </div>
+
+        <div class="form-header">
+          <h2>Welcome Back</h2>
+          <p class="form-sub">Sign in to continue your journey.</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-box">
+              <span class="material-icons-round">mail</span>
+              <input type="email" id="email" placeholder="arjun@example.com" />
+            </div>
+            <span class="error-msg" id="emailErr"></span>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <div class="label-row">
+              <label for="password">Password</label>
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+            <div class="input-box">
+              <span class="material-icons-round">lock</span>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+              />
+              <span class="material-icons-round toggle-pass" id="togglePass"
+                >visibility_off</span
+              >
+            </div>
+            <span class="error-msg" id="passwordErr"></span>
+          </div>
+
+          <!-- Remember Me -->
+          <div class="form-group remember-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="remember" />
+              <span class="custom-check"></span>
+              Remember me for 30 days
+            </label>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="submit-btn">
+            <span>Sign In</span>
+            <span class="material-icons-round">arrow_forward</span>
+          </button>
+
+          <!-- Divider -->
+          <div class="divider">
+            <span></span>
+            <p>or continue with</p>
+            <span></span>
+          </div>
+
+          <!-- Social Buttons -->
+          <div class="social-row">
+            <button type="button" class="social-btn">
+              <img
+                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                alt="Google"
+                width="18"
+                height="18"
+              />
+              Google
+            </button>
+            <button type="button" class="social-btn">
+              <img
+                src="https://www.svgrepo.com/show/448234/github.svg"
+                alt="GitHub"
+                width="18"
+                height="18"
+                style="filter: invert(1)"
+              />
+              GitHub
+            </button>
+          </div>
+        </form>
+
+        <p class="no-account">
+          Don't have an account? <a href="index.html">Create one</a>
+        </p>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+        <div class="right-inner">
+          <div class="quote-block">
+            <span class="material-icons-round quote-icon">format_quote</span>
+            <p class="quote-text">
+              The future belongs to those who believe in the beauty of their
+              dreams.
+            </p>
+            <div class="quote-author">
+              <div class="author-avatar">ES</div>
+              <div>
+                <p class="author-name">Eleanor S.</p>
+                <p class="author-role">Product Designer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="material-icons-round">group</span>
+              <p class="stat-num">128K+</p>
+              <p class="stat-label">Active Users</p>
+            </div>
+            <div class="stat-card">
+              <span class="material-icons-round">star</span>
+              <p class="stat-num">4.9</p>
+              <p class="stat-label">Rating</p>
+            </div>
+            <div class="stat-card">
+              <span class="material-icons-round">public</span>
+              <p class="stat-num">60+</p>
+              <p class="stat-label">Countries</p>
+            </div>
+            <div class="stat-card">
+              <span class="material-icons-round">security</span>
+              <p class="stat-num">99.9%</p>
+              <p class="stat-label">Uptime</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

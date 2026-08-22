@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title -->
+    <title>Register | MetaSkillGroup</title>
+
+    <!-- SEO Meta -->
+    <meta
+      name="description"
+      content="Create your account on MetaSkillGroup. Explore blogs, projects, templates, and free components built for developers."
+    />
+    <meta
+      name="keywords"
+      content="MetaSkillGroup, developer marketplace, free templates, React components, projects, coding blog"
+    />
+    <meta name="author" content="Ankur Agarwal" />
+
+    <!-- Open Graph (for social sharing) -->
+    <meta
+      property="og:title"
+      content="MetaSkillGroup - Developer Marketplace"
+    />
+    <meta
+      property="og:description"
+      content="Join MetaSkillGroup to explore and share projects, blogs, and free developer resources."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://metaskillgroup.com" />
+    <meta
+      property="og:image"
+      content="https://metaskillgroup.com/preview.png"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Animated Background Blobs -->
+    <div class="bg-blob blob1"></div>
+    <div class="bg-blob blob2"></div>
+    <div class="bg-blob blob3"></div>
+
+    <div class="wrapper">
+      <!-- Left Panel -->
+      <div class="left-panel">
+        <div class="brand">
+          <span class="material-icons-round brand-icon">electric_bolt</span>
+          <span class="brand-name">Nexora</span>
+        </div>
+        <div class="left-content">
+          <h1>Join the<br /><span class="highlight">Future</span> today.</h1>
+          <p>
+            Create your account and unlock a world of seamless experiences built
+            just for you.
+          </p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="material-icons-round">verified_user</span>
+              <span>Secure & Private</span>
+            </div>
+            <div class="feature-item">
+              <span class="material-icons-round">bolt</span>
+              <span>Lightning Fast</span>
+            </div>
+            <div class="feature-item">
+              <span class="material-icons-round">devices</span>
+              <span>Works Everywhere</span>
+            </div>
+          </div>
+        </div>
+        <p class="already-member">
+          Already have an account? <a href="#">Sign In</a>
+        </p>
+      </div>
+
+      <!-- Register Form Panel -->
+      <div class="form-panel">
+        <h2>Create Account</h2>
+        <p class="form-sub">Fill in the details below to get started.</p>
+
+        <form id="registerForm" novalidate>
+          <!-- Row 1: First Name + Last Name -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <div class="input-box">
+                <span class="material-icons-round">person</span>
+                <input type="text" id="firstName" placeholder="Arjun" />
+              </div>
+              <span class="error-msg" id="firstNameErr"></span>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <div class="input-box">
+                <span class="material-icons-round">badge</span>
+                <input type="text" id="lastName" placeholder="Sharma" />
+              </div>
+              <span class="error-msg" id="lastNameErr"></span>
+            </div>
+          </div>
+
+          <!-- Row 2: Email (full width) -->
+          <div class="form-row single">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <div class="input-box">
+                <span class="material-icons-round">mail</span>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="arjun@example.com"
+                />
+              </div>
+              <span class="error-msg" id="emailErr"></span>
+            </div>
+          </div>
+
+          <!-- Row 3: Password + Confirm Password -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-box">
+                <span class="material-icons-round">lock</span>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Min. 8 characters"
+                />
+                <span class="material-icons-round toggle-pass" id="togglePass"
+                  >visibility_off</span
+                >
+              </div>
+              <span class="error-msg" id="passwordErr"></span>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <div class="input-box">
+                <span class="material-icons-round">lock_reset</span>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  placeholder="Repeat password"
+                />
+                <span
+                  class="material-icons-round toggle-pass"
+                  id="toggleConfirm"
+                  >visibility_off</span
+                >
+              </div>
+              <span class="error-msg" id="confirmPasswordErr"></span>
+            </div>
+          </div>
+
+          <!-- Terms -->
+          <div class="form-row single">
+            <div class="form-group terms-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="terms" />
+                <span class="custom-check"></span>
+                I agree to the <a href="#">Terms of Service</a> and
+                <a href="#">Privacy Policy</a>
+              </label>
+              <span class="error-msg" id="termsErr"></span>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="submit-btn">
+            <span>Create Account</span>
+            <span class="material-icons-round">arrow_forward</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

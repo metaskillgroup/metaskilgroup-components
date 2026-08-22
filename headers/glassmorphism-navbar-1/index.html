@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar | Glassify</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for Social Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- OVERLAY (mobile menu backdrop) -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <!-- LOGO -->
+        <a href="#" class="nav-logo">
+          <div class="logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5z"
+                fill="currentColor"
+                opacity="0.9"
+              />
+              <path
+                d="M2 17l10 5 10-5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                fill="none"
+                opacity="0.7"
+              />
+              <path
+                d="M2 12l10 5 10-5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <span class="logo-text">Glassify</span>
+        </a>
+
+        <!-- CENTER NAV LINKS -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#" class="nav-link active">Home</a></li>
+
+          <!-- DROPDOWN: Products -->
+          <li class="dropdown-parent">
+            <button class="nav-link dropdown-trigger" id="dropProducts">
+              Products
+              <span class="material-icons-round chevron">expand_more</span>
+            </button>
+            <div class="dropdown-menu" id="menuProducts">
+              <div class="dropdown-inner">
+                <a href="#" class="dropdown-item">
+                  <span class="di-icon"
+                    ><span class="material-icons-round">dashboard</span></span
+                  >
+                  <div>
+                    <p class="di-title">Dashboard</p>
+                    <p class="di-sub">All your metrics in one place</p>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <span class="di-icon"
+                    ><span class="material-icons-round">analytics</span></span
+                  >
+                  <div>
+                    <p class="di-title">Analytics</p>
+                    <p class="di-sub">Deep data insights</p>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <span class="di-icon"
+                    ><span class="material-icons-round">hub</span></span
+                  >
+                  <div>
+                    <p class="di-title">Integrations</p>
+                    <p class="di-sub">Connect your tools</p>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <span class="di-icon"
+                    ><span class="material-icons-round"
+                      >rocket_launch</span
+                    ></span
+                  >
+                  <div>
+                    <p class="di-title">API</p>
+                    <p class="di-sub">Build on our platform</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- DROPDOWN: Company -->
+          <li class="dropdown-parent">
+            <button class="nav-link dropdown-trigger" id="dropCompany">
+              Company
+              <span class="material-icons-round chevron">expand_more</span>
+            </button>
+            <div class="dropdown-menu" id="menuCompany">
+              <div class="dropdown-inner">
+                <a href="#" class="dropdown-item">
+                  <span class="di-icon"
+                    ><span class="material-icons-round">groups</span></span
+                  >
+                  <div>
+                    <p class="di-title">About Us</p>
+                    <p class="di-sub">Our story & mission</p>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <span class="di-icon"
+                    ><span class="material-icons-round">work</span></span
+                  >
+                  <div>
+                    <p class="di-title">Careers</p>
+                    <p class="di-sub">We're hiring!</p>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <span class="di-icon"
+                    ><span class="material-icons-round">newspaper</span></span
+                  >
+                  <div>
+                    <p class="di-title">Blog</p>
+                    <p class="di-sub">News & updates</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="#" class="nav-link">Pricing</a></li>
+          <li><a href="#" class="nav-link">Docs</a></li>
+        </ul>
+
+        <!-- RIGHT SECTION -->
+        <div class="nav-right">
+          <!-- Social Icons -->
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="GitHub"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="#" class="social-icon" aria-label="Twitter"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a href="#" class="social-icon" aria-label="Discord"
+              ><i class="fa-brands fa-discord"></i
+            ></a>
+          </div>
+
+          <!-- Divider -->
+          <div class="nav-divider"></div>
+
+          <!-- Theme Toggle -->
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <span class="material-icons-round" id="themeIcon">light_mode</span>
+          </button>
+
+          <!-- CTA Buttons -->
+          <a href="login.html" class="btn-ghost">Sign In</a>
+          <a href="index.html" class="btn-primary">Get Started</a>
+
+          <!-- Hamburger (mobile) -->
+          <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== MOBILE DRAWER ===== -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <a href="#" class="nav-logo">
+          <div class="logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5z"
+                fill="currentColor"
+                opacity="0.9"
+              />
+              <path
+                d="M2 17l10 5 10-5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                fill="none"
+                opacity="0.7"
+              />
+              <path
+                d="M2 12l10 5 10-5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <span class="logo-text">Glassify</span>
+        </a>
+        <button class="drawer-close" id="drawerClose">
+          <span class="material-icons-round">close</span>
+        </button>
+      </div>
+
+      <div class="drawer-links">
+        <a href="#" class="drawer-link active">
+          <span class="material-icons-round">home</span> Home
+        </a>
+
+        <!-- Mobile Accordion: Products -->
+        <div class="drawer-accordion">
+          <button class="drawer-link accordion-trigger" id="accProducts">
+            <span class="left-group"
+              ><span class="material-icons-round">widgets</span> Products</span
+            >
+            <span class="material-icons-round acc-arrow">expand_more</span>
+          </button>
+          <div class="accordion-body" id="bodyProducts">
+            <a href="#" class="accordion-link"
+              ><span class="material-icons-round">dashboard</span> Dashboard</a
+            >
+            <a href="#" class="accordion-link"
+              ><span class="material-icons-round">analytics</span> Analytics</a
+            >
+            <a href="#" class="accordion-link"
+              ><span class="material-icons-round">hub</span> Integrations</a
+            >
+            <a href="#" class="accordion-link"
+              ><span class="material-icons-round">rocket_launch</span> API</a
+            >
+          </div>
+        </div>
+
+        <!-- Mobile Accordion: Company -->
+        <div class="drawer-accordion">
+          <button class="drawer-link accordion-trigger" id="accCompany">
+            <span class="left-group"
+              ><span class="material-icons-round">business</span> Company</span
+            >
+            <span class="material-icons-round acc-arrow">expand_more</span>
+          </button>
+          <div class="accordion-body" id="bodyCompany">
+            <a href="#" class="accordion-link"
+              ><span class="material-icons-round">groups</span> About Us</a
+            >
+            <a href="#" class="accordion-link"
+              ><span class="material-icons-round">work</span> Careers</a
+            >
+            <a href="#" class="accordion-link"
+              ><span class="material-icons-round">newspaper</span> Blog</a
+            >
+          </div>
+        </div>
+
+        <a href="#" class="drawer-link"
+          ><span class="material-icons-round">payments</span> Pricing</a
+        >
+        <a href="#" class="drawer-link"
+          ><span class="material-icons-round">menu_book</span> Docs</a
+        >
+      </div>
+
+      <div class="drawer-footer">
+        <div class="drawer-socials">
+          <a href="#" class="social-icon"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a href="#" class="social-icon"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a href="#" class="social-icon"
+            ><i class="fa-brands fa-discord"></i
+          ></a>
+          <a href="#" class="social-icon"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+        <div class="drawer-cta">
+          <a href="login.html" class="btn-ghost full">Sign In</a>
+          <a href="index.html" class="btn-primary full">Get Started</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== DEMO HERO (just to show navbar in context) ===== -->
+    <section class="hero-demo">
+      <h1>Beautiful Navbar<br /><span>in Glassmorphism</span></h1>
+      <p>
+        Dark &amp; Light theme · Dropdown menus · Responsive drawer · Social
+        icons
+      </p>
+      <div class="hero-badges">
+        <span class="badge"
+          ><span class="material-icons-round">dark_mode</span> Dark Mode</span
+        >
+        <span class="badge"
+          ><span class="material-icons-round">light_mode</span> Light Mode</span
+        >
+        <span class="badge"
+          ><span class="material-icons-round">phone_android</span>
+          Responsive</span
+        >
+        <span class="badge"
+          ><span class="material-icons-round">blur_on</span> Glassmorphism</span
+        >
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
