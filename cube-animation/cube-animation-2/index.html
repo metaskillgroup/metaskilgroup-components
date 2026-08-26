@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crush Gallery – A 3D Tribute to Your Special One</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background: #000;
+        overflow-x: hidden;
+      }
+      .quote-container {
+        text-align: center;
+        position: absolute;
+        top: 0;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .quote {
+        font-family: "Great Vibes", cursive;
+        font-size: 2.5rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .quote-author {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 10px;
+      }
+      .scene {
+        width: 300px;
+        height: 300px;
+        perspective: 1200px;
+        transform-style: preserve-3d;
+        margin: 20px;
+        margin-top: 30px;
+        transition: all 0.5s ease;
+      }
+
+      .outer-cube {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: rotate 15s infinite linear;
+        pointer-events: none;
+      }
+
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        transition:
+          transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+          opacity 0.5s ease,
+          background-color 0.5s ease,
+          border 0.5s ease;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 105, 180, 0.5);
+        pointer-events: auto;
+        backface-visibility: visible;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        opacity: 0.8;
+      }
+
+      .face img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+        opacity: 0.7;
+        transition: opacity 0.5s ease;
+      }
+
+      .front {
+        transform: translateZ(150px);
+      }
+      .back {
+        transform: rotateY(180deg) translateZ(150px);
+      }
+      .right {
+        transform: rotateY(90deg) translateZ(150px);
+      }
+      .left {
+        transform: rotateY(-90deg) translateZ(150px);
+      }
+      .top {
+        transform: rotateX(90deg) translateZ(150px);
+      }
+      .bottom {
+        transform: rotateX(-90deg) translateZ(150px);
+      }
+
+      .scene:hover .face,
+      .scene:active .face {
+        background-color: rgba(255, 255, 255, 1);
+        backdrop-filter: blur(0);
+        opacity: 1;
+        border: 2px solid #ff69b4;
+      }
+
+      .scene:hover .face img,
+      .scene:active .face img {
+        opacity: 1;
+      }
+
+      .scene:hover .front,
+      .scene:active .front {
+        transform: translateZ(200px);
+      }
+      .scene:hover .back,
+      .scene:active .back {
+        transform: rotateY(180deg) translateZ(200px);
+      }
+      .scene:hover .right,
+      .scene:active .right {
+        transform: rotateY(90deg) translateZ(200px);
+      }
+      .scene:hover .left,
+      .scene:active .left {
+        transform: rotateY(-90deg) translateZ(200px);
+      }
+      .scene:hover .top,
+      .scene:active .top {
+        transform: rotateX(90deg) translateZ(200px);
+      }
+      .scene:hover .bottom,
+      .scene:active .bottom {
+        transform: rotateX(-90deg) translateZ(200px);
+      }
+
+      .inner-cube {
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        transform-style: preserve-3d;
+        animation: rotate 10s infinite linear reverse;
+        pointer-events: none;
+      }
+
+      .inner-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-color: rgba(255, 192, 203, 0.9);
+        border: 1px solid #ff69b4;
+        backface-visibility: visible;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .inner-face img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+      }
+
+      .inner-front {
+        transform: translateZ(75px);
+      }
+      .inner-back {
+        transform: rotateY(180deg) translateZ(75px);
+      }
+      .inner-right {
+        transform: rotateY(90deg) translateZ(75px);
+      }
+      .inner-left {
+        transform: rotateY(-90deg) translateZ(75px);
+      }
+      .inner-top {
+        transform: rotateX(90deg) translateZ(75px);
+      }
+      .inner-bottom {
+        transform: rotateX(-90deg) translateZ(75px);
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotateX(0) rotateY(0);
+        }
+        100% {
+          transform: rotateX(360deg) rotateY(360deg);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .scene {
+          width: 250px;
+          height: 250px;
+        }
+        .front,
+        .back,
+        .right,
+        .left,
+        .top,
+        .bottom {
+          transform: translateZ(125px);
+        }
+        .scene:hover .front,
+        .scene:active .front {
+          transform: translateZ(175px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quote-container"></div>
+    <div class="scene">
+      <div class="outer-cube">
+        <div class="face front">
+          <img src="./images/harlee.jpg" alt="front" />
+        </div>
+        <div class="face back">
+          <img src="./images/images (10).jpg" alt="back" />
+        </div>
+        <div class="face right">
+          <img src="./images/images (11).jpg" alt="right" />
+        </div>
+        <div class="face left">
+          <img src="./images/images (12).jpg" alt="left" />
+        </div>
+        <div class="face top">
+          <img src="./images//images (13).jpg" alt="top" />
+        </div>
+        <div class="face bottom">
+          <img src="./images/images (7).jpg" alt="bottom" />
+        </div>
+
+        <div class="inner-cube">
+          <div class="inner-face inner-front">
+            <img src="./images/images (8).jpg" alt="inner front" />
+          </div>
+          <div class="inner-face inner-back">
+            <img src="./images/images (9).jpg" alt="inner back" />
+          </div>
+          <div class="inner-face inner-right">
+            <img src="./images/har.jpg" alt="inner right" />
+          </div>
+          <div class="inner-face inner-left">
+            <img src="./images/harl.jpg" alt="inner left" />
+          </div>
+          <div class="inner-face inner-top">
+            <img src="./images/harlee.jpg" alt="inner top" />
+          </div>
+          <div class="inner-face inner-bottom">
+            <img src="./images/images (11).jpg" alt="inner bottom" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
