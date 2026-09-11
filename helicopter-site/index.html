@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS 3D Helicopter — Meta Skill Group</title>
+    <meta name="description" content="A pure CSS/HTML 3D helicopter animation — no images, no canvas, no JS libraries. A frontend showcase piece by Meta Skill Group (metaskillgroup.com).">
+    <meta name="author" content="Meta Skill Group">
+
+    <!-- Update this once the Netlify URL is live -->
+    <link rel="canonical" href="https://REPLACE-WITH-YOUR-NETLIFY-URL.netlify.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CSS 3D Helicopter — Meta Skill Group">
+    <meta property="og:description" content="A pure CSS/HTML 3D helicopter animation, built entirely with CSS transforms and clip-path — no libraries, no canvas.">
+    <meta property="og:url" content="https://REPLACE-WITH-YOUR-NETLIFY-URL.netlify.app/">
+    <meta property="og:site_name" content="Meta Skill Group">
+    <!-- Add this once the GIF is ready, drop it in assets/img/preview.gif -->
+    <!-- <meta property="og:image" content="./assets/img/preview.gif"> -->
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CSS 3D Helicopter — Meta Skill Group">
+    <meta name="twitter:description" content="A pure CSS/HTML 3D helicopter animation, built entirely with CSS transforms and clip-path.">
+    <!-- <meta name="twitter:image" content="./assets/img/preview.gif"> -->
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <style>
+        .msg-credit {
+            position: fixed;
+            bottom: 14px;
+            right: 18px;
+            font-family: sans-serif;
+            font-size: 12px;
+            color: #848484;
+            text-decoration: none;
+            letter-spacing: .02em;
+            z-index: 10;
+        }
+        .msg-credit:hover {
+            color: #242426;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="helicopter">
+        <div class="helicopter__case">
+            <div class="helicopter__back">
+                <div class="helicopter__back__layer"></div>
+                <div class="helicopter__back__blades"></div>
+            </div>
+            <div class="helicopter__bottom">
+                <div class="helicopter__bottom__pip-left"></div>
+                <div class="helicopter__bottom__pip-right"></div>
+                <div class="helicopter__bottom__pip"></div>
+            </div>
+            <div class="helicopter__body">
+                <div class="helicopter__body__base"></div>
+                <div class="helicopter__body__base-top">
+                    <div class="helicopter__body__base-top__window"></div>
+                </div>
+                <div class="helicopter__body__front"></div>
+                <div class="helicopter__body__front-window"></div>
+                <div class="helicopter__body__roof"></div>
+            </div>
+            <div class="helicopter__top">
+                <div class="helicopter__top__blades">
+                    <div class="helicopter__top__blades__item" style="--i:1"></div>
+                    <div class="helicopter__top__blades__item" style="--i:2"></div>
+                    <div class="helicopter__top__blades__item" style="--i:3"></div>
+                    <div class="helicopter__top__blades__item" style="--i:4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://metaskillgroup.com" target="_blank" rel="noopener" class="msg-credit">Built by Meta Skill Group</a>
+
+    <script>
+        /* Window Match Height Function */
+        window.addEventListener("load", function(){
+            document.querySelector("body").style.minHeight = document.querySelector("html").scrollHeight + "px";
+        });
+    </script>
+</body>
+</html>
