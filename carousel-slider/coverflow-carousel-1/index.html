@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Coverflow Carousel | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <div class="ambient" aria-hidden="true"></div>
+
+    <main class="coverflow-section">
+      <header class="cf-head">
+        <span class="cf-eyebrow">Now streaming</span>
+        <h1>Featured this week</h1>
+      </header>
+
+      <div class="coverflow" tabindex="0" aria-roledescription="carousel" aria-label="Featured titles">
+        <div class="stage">
+          <!-- Slides are created from script.js -->
+        </div>
+
+        <button class="arrow prev" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="arrow next" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <!-- Active slide details -->
+      <div class="details" aria-live="polite">
+        <div class="meta">
+          <span class="tag genre"></span>
+          <span class="dot">•</span>
+          <span class="year"></span>
+          <span class="dot">•</span>
+          <span class="rating"></span>
+        </div>
+        <h2 class="title"></h2>
+        <p class="desc"></p>
+        <div class="detail-actions">
+          <a href="#" class="btn btn-play">▶ Play now</a>
+          <button class="btn btn-list">+ My list</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="dots" role="tablist"></div>
+        <button class="autoplay" aria-label="Pause autoplay">
+          <span class="progress-ring"></span>
+          <span class="icon-pause">❚❚</span>
+          <span class="icon-play">▶</span>
+        </button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,296 @@
+/* Importing Google Fonts - DM Sans + Instrument Serif */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+:root {
+  --bg: #faf6ef;
+  --card: #ffffff;
+  --text: #1c1917;
+  --muted: #78716c;
+  --border: #ebe4d8;
+  --accent: #ea580c;
+  --star: #f59e0b;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.testimonials {
+  padding: 90px 0 100px;
+}
+
+/* ---------- Heading ---------- */
+.t-head {
+  max-width: 820px;
+  margin: 0 auto 56px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+.t-head h1 {
+  margin: 18px 0 36px;
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.t-head h1 em {
+  color: var(--accent);
+}
+
+.t-stats {
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 6vw, 64px);
+  flex-wrap: wrap;
+}
+
+.t-stats div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.t-stats strong {
+  font-family: "Instrument Serif", serif;
+  font-size: 2.6rem;
+  font-weight: 400;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.t-stats span {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Marquee wall ---------- */
+.wall {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Fade the left and right edges */
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.row {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding: 6px 0;
+  animation: marquee var(--duration, 50s) linear infinite;
+}
+
+.row[data-direction="right"] .track {
+  animation-direction: reverse;
+}
+
+/* Pause a row while the user reads a card */
+.row:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-50% - 10px));
+  }
+}
+
+/* ---------- Card ---------- */
+.t-card {
+  position: relative;
+  width: 360px;
+  flex-shrink: 0;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(28, 25, 23, 0.04);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.t-card:hover {
+  transform: translateY(-4px) rotate(-0.6deg);
+  border-color: #f3c9a8;
+  box-shadow: 0 20px 40px rgba(234, 88, 12, 0.12);
+}
+
+.t-card::after {
+  content: "\201C";
+  position: absolute;
+  top: 6px;
+  right: 20px;
+  font-family: "Instrument Serif", serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: #f5e6d6;
+  pointer-events: none;
+}
+
+.t-stars {
+  color: var(--star);
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+}
+
+.t-stars .dim {
+  color: #e7e0d4;
+}
+
+.t-text {
+  position: relative;
+  z-index: 1;
+  margin: 12px 0 20px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.t-text mark {
+  background: linear-gradient(transparent 60%, #fed7aa 60%);
+  color: inherit;
+}
+
+.t-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.t-avatar {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, hsl(var(--h) 75% 60%), hsl(calc(var(--h) + 40) 75% 50%));
+}
+
+.t-user strong {
+  display: block;
+  font-size: 0.93rem;
+}
+
+.t-user small {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.t-source {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--bg);
+}
+
+/* ---------- CTA ---------- */
+.t-cta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 56px;
+  padding: 0 20px;
+}
+
+.btn {
+  padding: 14px 26px;
+  border-radius: 99px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--text);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--accent);
+}
+
+.btn-outline {
+  color: var(--text);
+  background: transparent;
+  border: 1.5px solid var(--text);
+}
+
+.btn-outline:hover {
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .t-card {
+    width: 290px;
+    padding: 20px;
+  }
+
+  .wall {
+    gap: 14px;
+  }
+
+  .track {
+    gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+
+  .row {
+    overflow-x: auto;
+  }
+}

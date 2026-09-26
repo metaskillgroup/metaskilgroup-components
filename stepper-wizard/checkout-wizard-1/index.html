@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Checkout Wizard | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <main class="checkout">
+      <!-- Stepper -->
+      <ol class="stepper" aria-label="Checkout progress">
+        <li class="step is-current" data-step="0"><span class="step-dot">1</span><span class="step-label">Cart</span></li>
+        <li class="step" data-step="1"><span class="step-dot">2</span><span class="step-label">Shipping</span></li>
+        <li class="step" data-step="2"><span class="step-dot">3</span><span class="step-label">Payment</span></li>
+        <li class="step" data-step="3"><span class="step-dot">4</span><span class="step-label">Review</span></li>
+      </ol>
+
+      <div class="layout">
+        <!-- Panels -->
+        <form class="panels" novalidate>
+          <!-- Step 1: Cart -->
+          <section class="panel is-active" data-panel="0">
+            <h2>Your cart</h2>
+            <ul class="cart"></ul>
+            <p class="cart-empty">Your cart is empty. <button type="button" class="link restore">Restore items</button></p>
+          </section>
+
+          <!-- Step 2: Shipping -->
+          <section class="panel" data-panel="1">
+            <h2>Shipping details</h2>
+            <div class="fields">
+              <div class="field">
+                <input id="fname" name="fname" placeholder=" " required />
+                <label for="fname">First name</label>
+                <small class="error">Please enter your first name</small>
+              </div>
+              <div class="field">
+                <input id="lname" name="lname" placeholder=" " required />
+                <label for="lname">Last name</label>
+                <small class="error">Please enter your last name</small>
+              </div>
+              <div class="field full">
+                <input id="email" name="email" type="email" placeholder=" " required />
+                <label for="email">Email address</label>
+                <small class="error">Enter a valid email</small>
+              </div>
+              <div class="field full">
+                <input id="address" name="address" placeholder=" " required />
+                <label for="address">Street address</label>
+                <small class="error">Please enter your address</small>
+              </div>
+              <div class="field">
+                <input id="city" name="city" placeholder=" " required />
+                <label for="city">City</label>
+                <small class="error">Please enter your city</small>
+              </div>
+              <div class="field">
+                <input id="zip" name="zip" placeholder=" " required pattern="[0-9]{5,6}" inputmode="numeric" />
+                <label for="zip">PIN / ZIP code</label>
+                <small class="error">5–6 digit code</small>
+              </div>
+            </div>
+
+            <p class="group-label">Delivery method</p>
+            <div class="options">
+              <label class="option">
+                <input type="radio" name="delivery" value="0" checked />
+                <span class="option-body">
+                  <strong>Standard</strong><small>4–6 business days</small>
+                </span>
+                <b>Free</b>
+              </label>
+              <label class="option">
+                <input type="radio" name="delivery" value="12" />
+                <span class="option-body">
+                  <strong>Express</strong><small>1–2 business days</small>
+                </span>
+                <b>$12.00</b>
+              </label>
+            </div>
+          </section>
+
+          <!-- Step 3: Payment -->
+          <section class="panel" data-panel="2">
+            <h2>Payment</h2>
+
+            <!-- Live card preview -->
+            <div class="card-preview">
+              <div class="cc">
+                <div class="cc-face cc-front">
+                  <div class="cc-top">
+                    <span class="cc-chip"></span>
+                    <span class="cc-brand">VISA</span>
+                  </div>
+                  <div class="cc-number">•••• •••• •••• ••••</div>
+                  <div class="cc-bottom">
+                    <div><small>Card holder</small><span class="cc-name">YOUR NAME</span></div>
+                    <div><small>Expires</small><span class="cc-exp">MM/YY</span></div>
+                  </div>
+                </div>
+                <div class="cc-face cc-back">
+                  <div class="cc-stripe"></div>
+                  <div class="cc-cvv-row"><span class="cc-cvv">•••</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="fields">
+              <div class="field full">
+                <input id="ccname" name="ccname" placeholder=" " required autocomplete="cc-name" />
+                <label for="ccname">Name on card</label>
+                <small class="error">Please enter the name on your card</small>
+              </div>
+              <div class="field full">
+                <input id="ccnum" name="ccnum" placeholder=" " required inputmode="numeric" maxlength="19" autocomplete="cc-number" />
+                <label for="ccnum">Card number</label>
+                <small class="error">Enter a valid 16-digit card number</small>
+              </div>
+              <div class="field">
+                <input id="ccexp" name="ccexp" placeholder=" " required inputmode="numeric" maxlength="5" autocomplete="cc-exp" />
+                <label for="ccexp">Expiry (MM/YY)</label>
+                <small class="error">Enter a valid future date</small>
+              </div>
+              <div class="field">
+                <input id="cccvv" name="cccvv" placeholder=" " required inputmode="numeric" maxlength="3" autocomplete="cc-csc" />
+                <label for="cccvv">CVV</label>
+                <small class="error">3 digits</small>
+              </div>
+            </div>
+            <p class="secure">🔒 This is a demo. No payment is processed.</p>
+          </section>
+
+          <!-- Step 4: Review -->
+          <section class="panel" data-panel="3">
+            <h2>Review your order</h2>
+            <div class="review"></div>
+          </section>
+
+          <!-- Success -->
+          <section class="panel success" data-panel="4">
+            <div class="success-icon">
+              <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" /><path d="M15 27l7 7 15-15" /></svg>
+            </div>
+            <h2>Order placed!</h2>
+            <p>Thanks for shopping with us. Your order <b class="order-id"></b> is on its way.</p>
+            <button type="button" class="btn btn-primary restart">Start over</button>
+            <div class="confetti" aria-hidden="true"></div>
+          </section>
+
+          <!-- Navigation -->
+          <div class="nav-row">
+            <button type="button" class="btn btn-ghost back">← Back</button>
+            <button type="button" class="btn btn-primary next">Continue</button>
+          </div>
+        </form>
+
+        <!-- Summary -->
+        <aside class="summary">
+          <h3>Order summary</h3>
+          <ul class="sum-items"></ul>
+          <div class="promo">
+            <input type="text" placeholder="Promo code (try META10)" aria-label="Promo code" />
+            <button type="button" class="btn btn-ghost apply">Apply</button>
+          </div>
+          <p class="promo-msg"></p>
+          <dl class="totals">
+            <div><dt>Subtotal</dt><dd class="t-sub">$0.00</dd></div>
+            <div><dt>Shipping</dt><dd class="t-ship">Free</dd></div>
+            <div class="t-disc-row"><dt>Discount</dt><dd class="t-disc">-$0.00</dd></div>
+            <div><dt>Tax (8%)</dt><dd class="t-tax">$0.00</dd></div>
+            <div class="grand"><dt>Total</dt><dd class="t-total">$0.00</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

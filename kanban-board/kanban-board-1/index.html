@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag &amp; Drop Kanban Board | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <div class="app">
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="title">
+          <span class="board-icon">▦</span>
+          <div>
+            <h1>Product Launch</h1>
+            <p class="sub"><span class="total-count">0</span> tasks · drag cards between columns</p>
+          </div>
+        </div>
+        <div class="tools">
+          <label class="search">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input type="search" placeholder="Filter tasks..." aria-label="Filter tasks" />
+          </label>
+          <div class="label-filter" role="group" aria-label="Filter by label"></div>
+          <button class="btn-ghost reset" title="Reset the board to demo data">Reset</button>
+        </div>
+      </header>
+
+      <!-- Board (columns rendered from script.js) -->
+      <main class="board" aria-label="Kanban board"></main>
+    </div>
+
+    <!-- Edit modal -->
+    <div class="modal-backdrop" aria-hidden="true">
+      <form class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <header>
+          <h2 id="modalTitle">Edit task</h2>
+          <button type="button" class="icon-btn close" aria-label="Close">✕</button>
+        </header>
+        <label class="m-field">
+          <span>Title</span>
+          <input name="title" required maxlength="80" />
+        </label>
+        <label class="m-field">
+          <span>Description</span>
+          <textarea name="desc" rows="3" maxlength="300"></textarea>
+        </label>
+        <div class="m-row">
+          <label class="m-field">
+            <span>Label</span>
+            <select name="label"></select>
+          </label>
+          <label class="m-field">
+            <span>Priority</span>
+            <select name="priority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+          <label class="m-field">
+            <span>Due date</span>
+            <input type="date" name="due" />
+          </label>
+        </div>
+        <footer>
+          <button type="button" class="btn-danger delete">Delete task</button>
+          <div>
+            <button type="button" class="btn-ghost close">Cancel</button>
+            <button type="submit" class="btn-primary">Save</button>
+          </div>
+        </footer>
+      </form>
+    </div>
+
+    <div class="toast" role="status"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

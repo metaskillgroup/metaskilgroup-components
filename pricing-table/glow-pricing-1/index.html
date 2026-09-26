@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glow Pricing Table | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <section class="pricing">
+      <header class="pricing-head">
+        <span class="eyebrow">Pricing</span>
+        <h1>Simple pricing that <span class="glow-text">scales with you</span></h1>
+        <p>Start free, upgrade when you're ready. No hidden fees, cancel anytime.</p>
+
+        <!-- Billing toggle -->
+        <div class="billing" role="radiogroup" aria-label="Billing period">
+          <button class="billing-opt is-active" role="radio" aria-checked="true" data-period="monthly">Monthly</button>
+          <button class="billing-opt" role="radio" aria-checked="false" data-period="yearly">
+            Yearly <span class="save">-20%</span>
+          </button>
+          <span class="billing-thumb" aria-hidden="true"></span>
+        </div>
+      </header>
+
+      <!-- Plans -->
+      <div class="plans">
+        <article class="plan">
+          <div class="plan-top">
+            <h2>Starter</h2>
+            <p>For individuals and side projects.</p>
+          </div>
+          <div class="price">
+            <span class="currency">$</span>
+            <span class="amount" data-monthly="0" data-yearly="0">0</span>
+            <span class="per">/month</span>
+          </div>
+          <p class="billed" data-monthly="Free forever" data-yearly="Free forever">Free forever</p>
+          <a href="#" class="plan-btn">Get started</a>
+          <ul class="features">
+            <li>3 projects</li>
+            <li>1 GB storage</li>
+            <li>Community support</li>
+            <li class="off">Custom domains</li>
+            <li class="off">Team roles</li>
+          </ul>
+        </article>
+
+        <article class="plan featured">
+          <span class="plan-badge">Most popular</span>
+          <div class="plan-top">
+            <h2>Pro</h2>
+            <p>For growing teams shipping fast.</p>
+          </div>
+          <div class="price">
+            <span class="currency">$</span>
+            <span class="amount" data-monthly="29" data-yearly="23">29</span>
+            <span class="per">/month</span>
+          </div>
+          <p class="billed" data-monthly="Billed monthly" data-yearly="$276 billed yearly">Billed monthly</p>
+          <a href="#" class="plan-btn primary">Start 14-day trial</a>
+          <ul class="features">
+            <li>Unlimited projects</li>
+            <li>100 GB storage</li>
+            <li>Priority support</li>
+            <li>Custom domains</li>
+            <li class="off">Team roles</li>
+          </ul>
+        </article>
+
+        <article class="plan">
+          <div class="plan-top">
+            <h2>Enterprise</h2>
+            <p>For organisations with advanced needs.</p>
+          </div>
+          <div class="price">
+            <span class="currency">$</span>
+            <span class="amount" data-monthly="99" data-yearly="79">99</span>
+            <span class="per">/month</span>
+          </div>
+          <p class="billed" data-monthly="Billed monthly" data-yearly="$948 billed yearly">Billed monthly</p>
+          <a href="#" class="plan-btn">Contact sales</a>
+          <ul class="features">
+            <li>Everything in Pro</li>
+            <li>1 TB storage</li>
+            <li>Dedicated manager</li>
+            <li>Custom domains</li>
+            <li>Team roles &amp; SSO</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="compare">
+        <button class="compare-toggle" aria-expanded="false">
+          Compare all features
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="compare-wrap">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Features</th>
+                  <th>Starter</th>
+                  <th class="hl">Pro</th>
+                  <th>Enterprise</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="group"><td colspan="4">Core</td></tr>
+                <tr><td>Projects</td><td>3</td><td class="hl">Unlimited</td><td>Unlimited</td></tr>
+                <tr><td>Storage</td><td>1 GB</td><td class="hl">100 GB</td><td>1 TB</td></tr>
+                <tr><td>Team members</td><td>1</td><td class="hl">10</td><td>Unlimited</td></tr>
+                <tr><td>Custom domains</td><td><i class="no"></i></td><td class="hl"><i class="yes"></i></td><td><i class="yes"></i></td></tr>
+                <tr class="group"><td colspan="4">Collaboration</td></tr>
+                <tr><td>Real-time editing</td><td><i class="yes"></i></td><td class="hl"><i class="yes"></i></td><td><i class="yes"></i></td></tr>
+                <tr><td>Comments &amp; mentions</td><td><i class="no"></i></td><td class="hl"><i class="yes"></i></td><td><i class="yes"></i></td></tr>
+                <tr><td>Roles &amp; permissions</td><td><i class="no"></i></td><td class="hl"><i class="no"></i></td><td><i class="yes"></i></td></tr>
+                <tr class="group"><td colspan="4">Security &amp; support</td></tr>
+                <tr><td>SSO / SAML</td><td><i class="no"></i></td><td class="hl"><i class="no"></i></td><td><i class="yes"></i></td></tr>
+                <tr><td>Audit logs</td><td><i class="no"></i></td><td class="hl">30 days</td><td>Unlimited</td></tr>
+                <tr><td>Support</td><td>Community</td><td class="hl">Priority</td><td>Dedicated</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

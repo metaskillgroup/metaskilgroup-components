@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Parallax Device Hero | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <section class="hero">
+      <!-- Gradient mesh blobs -->
+      <div class="mesh" aria-hidden="true">
+        <span class="blob b1" data-depth="30"></span>
+        <span class="blob b2" data-depth="-40"></span>
+        <span class="blob b3" data-depth="20"></span>
+      </div>
+      <div class="grid-lines" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <!-- Copy -->
+        <div class="hero-copy">
+          <a href="#" class="announce">
+            <span class="announce-tag">New</span>
+            Series A — we raised $24M
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+
+          <h1>
+            The workspace to<br />
+            <span class="rotator" aria-live="polite">
+              <span class="word is-active">design</span>
+              <span class="word">build</span>
+              <span class="word">launch</span>
+              <span class="word">scale</span>
+            </span>
+            <br />your next product.
+          </h1>
+
+          <p class="lead">
+            Plan, ship and measure in one fast, beautiful tool. Loved by 40,000+
+            teams who are done juggling ten different apps.
+          </p>
+
+          <div class="cta-row">
+            <a href="#" class="btn btn-primary">
+              Start for free
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#" class="btn btn-ghost">
+              <span class="play">
+                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              </span>
+              Watch demo
+            </a>
+          </div>
+
+          <div class="social-proof">
+            <div class="avatars">
+              <span style="--h: 260">AK</span>
+              <span style="--h: 190">RS</span>
+              <span style="--h: 330">MJ</span>
+              <span style="--h: 30">PL</span>
+            </div>
+            <div>
+              <div class="stars">★★★★★</div>
+              <small>4.9/5 from 2,300+ reviews</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D devices -->
+        <div class="scene" aria-hidden="true">
+          <div class="devices">
+            <!-- Laptop -->
+            <div class="laptop">
+              <div class="laptop-screen">
+                <div class="app">
+                  <div class="app-side">
+                    <span class="dot-logo"></span>
+                    <i></i><i class="on"></i><i></i><i></i>
+                  </div>
+                  <div class="app-main">
+                    <div class="app-top">
+                      <b></b>
+                      <span class="pill"></span>
+                    </div>
+                    <div class="app-kpis">
+                      <div class="kpi"><small></small><strong>$48.2k</strong><em>+12%</em></div>
+                      <div class="kpi"><small></small><strong>3,904</strong><em>+8%</em></div>
+                      <div class="kpi"><small></small><strong>72%</strong><em>+4%</em></div>
+                    </div>
+                    <div class="app-chart">
+                      <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#7c5cff" stop-opacity=".45" />
+                            <stop offset="1" stop-color="#7c5cff" stop-opacity="0" />
+                          </linearGradient>
+                        </defs>
+                        <path class="chart-area" d="M0 80 C30 70 45 40 75 45 S120 75 150 50 S200 15 230 25 S275 10 300 5 V100 H0Z" fill="url(#area)" />
+                        <path class="chart-line" d="M0 80 C30 70 45 40 75 45 S120 75 150 50 S200 15 230 25 S275 10 300 5" fill="none" stroke="#7c5cff" stroke-width="3" />
+                      </svg>
+                    </div>
+                    <div class="app-rows">
+                      <i></i><i></i><i></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="laptop-base"></div>
+            </div>
+
+            <!-- Phone -->
+            <div class="phone">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <small>Revenue</small>
+                <strong>$12,480</strong>
+                <div class="bars">
+                  <i style="--v: 40%"></i><i style="--v: 65%"></i><i style="--v: 50%"></i>
+                  <i style="--v: 85%"></i><i style="--v: 70%"></i><i style="--v: 95%"></i>
+                </div>
+                <div class="phone-card"><span></span><b></b></div>
+                <div class="phone-card"><span class="c2"></span><b></b></div>
+              </div>
+            </div>
+
+            <!-- Floating chips -->
+            <div class="chip chip-1">
+              <span class="chip-icon">✓</span>
+              <div><strong>Deploy complete</strong><small>2 seconds ago</small></div>
+            </div>
+            <div class="chip chip-2">
+              <span class="chip-icon c2">↑</span>
+              <div><strong>+38% growth</strong><small>this quarter</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo marquee -->
+      <div class="logos">
+        <p>Trusted by teams at</p>
+        <div class="marquee">
+          <div class="marquee-track">
+            <span>◆ Northwind</span><span>● Lumen</span><span>▲ Vertex</span><span>■ Quanta</span>
+            <span>✦ Orbit</span><span>◆ Helix</span><span>● Pulse</span><span>▲ Nimbus</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

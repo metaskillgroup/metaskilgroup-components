@@ -1,0 +1,520 @@
+/* Importing Google Fonts - Outfit */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+}
+
+:root {
+  --bg: #05060d;
+  --card: #0d0f1c;
+  --card-2: #12152a;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #eef0ff;
+  --muted: #8b8fb0;
+  --neon: #00e0ff;
+  --neon-2: #a855f7;
+  --neon-3: #ff3d9a;
+  --green: #34d399;
+}
+
+/* Registered custom property so the conic gradient angle can animate */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(168, 85, 247, 0.18), transparent 70%),
+    var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.pricing {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 90px 20px 100px;
+}
+
+/* ---------- Heading ---------- */
+.pricing-head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--neon);
+  border: 1px solid rgba(0, 224, 255, 0.3);
+  background: rgba(0, 224, 255, 0.06);
+}
+
+.pricing-head h1 {
+  margin: 20px 0 14px;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.glow-text {
+  background: linear-gradient(90deg, var(--neon), var(--neon-2), var(--neon-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 24px rgba(168, 85, 247, 0.45));
+}
+
+.pricing-head p {
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+/* ---------- Billing toggle ---------- */
+.billing {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 34px;
+  padding: 5px;
+  border-radius: 99px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.billing-opt {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 26px;
+  border-radius: 99px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.billing-opt.is-active {
+  color: #05060d;
+}
+
+.save {
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--green);
+  background: rgba(52, 211, 153, 0.12);
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.billing-opt.is-active .save {
+  color: #05060d;
+  background: rgba(5, 6, 13, 0.12);
+}
+
+.billing-thumb {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  width: calc(50% - 5px);
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--neon), #7dd3fc);
+  box-shadow: 0 0 24px rgba(0, 224, 255, 0.5);
+  transition: transform 0.45s cubic-bezier(0.68, -0.4, 0.27, 1.4);
+}
+
+.billing.yearly .billing-thumb {
+  transform: translateX(100%);
+}
+
+/* ---------- Plans ---------- */
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 60px;
+  align-items: stretch;
+}
+
+.plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 28px;
+  border-radius: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+}
+
+.plan:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Spotlight that follows the cursor (position set from JS) */
+.plan::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.plan:hover::after {
+  opacity: 1;
+}
+
+/* Featured plan with the animated neon border */
+/* Solid fill on the padding-box, rotating conic gradient on the border-box */
+.plan.featured {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--card-2), var(--card-2)) padding-box,
+    conic-gradient(from var(--angle), var(--neon), var(--neon-2), var(--neon-3), var(--neon)) border-box;
+  transform: scale(1.04);
+  box-shadow: 0 30px 80px rgba(168, 85, 247, 0.25);
+  animation: spin 4s linear infinite;
+}
+
+.plan.featured:hover {
+  transform: scale(1.04) translateY(-6px);
+}
+
+@keyframes spin {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.plan-badge {
+  position: absolute !important;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 16px;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #05060d;
+  background: linear-gradient(90deg, var(--neon), var(--neon-2));
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.45);
+}
+
+.plan-top h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.plan-top p {
+  margin-top: 6px;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+
+.price {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 28px;
+  font-variant-numeric: tabular-nums;
+}
+
+.currency {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.amount {
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.per {
+  align-self: flex-end;
+  margin: 0 0 8px 6px;
+  color: var(--muted);
+}
+
+.billed {
+  min-height: 1.4em;
+  margin-top: 8px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.plan-btn {
+  display: block;
+  margin: 26px 0;
+  padding: 14px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+.plan-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  transform: translateY(-2px);
+}
+
+.plan-btn.primary {
+  border: none;
+  color: #05060d;
+  background: linear-gradient(90deg, var(--neon), var(--neon-2));
+  box-shadow: 0 10px 30px rgba(0, 224, 255, 0.3);
+}
+
+.plan-btn.primary:hover {
+  box-shadow: 0 14px 40px rgba(168, 85, 247, 0.5);
+}
+
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.features li::before {
+  content: "✓";
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--neon);
+  background: rgba(0, 224, 255, 0.12);
+}
+
+.features li.off {
+  color: #555a7a;
+  text-decoration: line-through;
+}
+
+.features li.off::before {
+  content: "✕";
+  color: #555a7a;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ---------- Comparison ---------- */
+.compare {
+  margin-top: 64px;
+  text-align: center;
+}
+
+.compare-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 99px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: border-color 0.2s ease;
+}
+
+.compare-toggle:hover {
+  border-color: rgba(0, 224, 255, 0.4);
+}
+
+.compare-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.compare.open .compare-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* Grid-rows trick for smooth height animation */
+.compare-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.compare.open .compare-wrap {
+  grid-template-rows: 1fr;
+}
+
+.table-scroll {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.compare.open .table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 640px;
+  margin-top: 28px;
+  border-collapse: collapse;
+  text-align: left;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--card);
+}
+
+th,
+td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+th {
+  font-weight: 600;
+  background: var(--card-2);
+}
+
+th:not(:first-child),
+td:not(:first-child) {
+  text-align: center;
+}
+
+td {
+  color: #c4c7e2;
+}
+
+.hl {
+  background: rgba(168, 85, 247, 0.07);
+  color: var(--text);
+}
+
+th.hl {
+  color: var(--neon);
+}
+
+tr.group td {
+  padding-top: 22px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  text-align: left;
+}
+
+tbody tr:not(.group):hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+i.yes,
+i.no {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+i.yes {
+  background: rgba(52, 211, 153, 0.15)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12l4 4 8-8' fill='none' stroke='%2334d399' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 14px no-repeat;
+}
+
+i.no {
+  width: 12px;
+  height: 2px;
+  border-radius: 2px;
+  background: #3b3f5c;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .plans {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 32px;
+  }
+
+  .plan.featured,
+  .plan.featured:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .billing-opt {
+    padding: 10px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
