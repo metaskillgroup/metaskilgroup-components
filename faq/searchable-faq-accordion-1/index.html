@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Searchable FAQ Accordion | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <section class="faq">
+      <aside class="faq-side">
+        <span class="eyebrow">Help center</span>
+        <h1>Frequently asked <em>questions</em></h1>
+        <p>Everything you need to know about the product and billing. Can't find an answer? Our team replies within a few hours.</p>
+
+        <div class="contact-card">
+          <div class="avatars" aria-hidden="true">
+            <span style="--c: #0f9d6e">AK</span>
+            <span style="--c: #f59e0b">RS</span>
+            <span style="--c: #6366f1">MJ</span>
+          </div>
+          <h2>Still have questions?</h2>
+          <p>Chat with a real human — average reply time is 2 hours.</p>
+          <a href="#" class="contact-btn">Get in touch</a>
+        </div>
+      </aside>
+
+      <div class="faq-main">
+        <div class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
+          <input type="search" id="faq-search" placeholder="Search questions…" aria-label="Search questions" autocomplete="off" />
+          <kbd>/</kbd>
+        </div>
+
+        <div class="toolbar">
+          <div class="chips" id="chips" role="tablist" aria-label="Filter by topic"></div>
+          <button type="button" class="expand-all" id="expand-all">Expand all</button>
+        </div>
+
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+
+        <!-- Questions are rendered from script.js -->
+        <div class="list" id="faq-list"></div>
+
+        <div class="empty" id="empty" hidden>
+          <span aria-hidden="true">🔍</span>
+          <h3>No matching questions</h3>
+          <p>Try another word, or <a href="#">ask our team</a> directly.</p>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookie Consent with Preferences | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Scripts like these only run after the visitor allows their category -->
+    <script type="text/plain" data-consent="analytics">window.consentLog?.("📊 Analytics script loaded");</script>
+    <script type="text/plain" data-consent="marketing">window.consentLog?.("🎯 Marketing pixel loaded");</script>
+    <script type="text/plain" data-consent="functional">window.consentLog?.("💬 Live chat loaded");</script>
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+
+    <!-- Demo page -->
+    <main class="demo">
+      <span class="eyebrow">Cookie consent</span>
+      <h1>Cookies, but <em>honest.</em></h1>
+      <p>A consent banner with a real preference center. Scripts stay switched off until the visitor allows their category — and the choice is remembered for 180 days.</p>
+
+      <section class="panel" aria-label="Consent status">
+        <div class="panel-head">
+          <b>Live consent state</b>
+          <div class="panel-actions">
+            <button type="button" data-open-prefs>Preferences</button>
+            <button type="button" id="reset">Reset</button>
+          </div>
+        </div>
+        <ul class="states" id="states"></ul>
+        <ol class="log" id="log"><li>Waiting for a choice…</li></ol>
+      </section>
+    </main>
+
+    <!-- Banner -->
+    <section class="banner" id="banner" role="region" aria-label="Cookie consent" hidden>
+      <div class="cookie-art" aria-hidden="true">🍪</div>
+      <div class="banner-text">
+        <h2>We value your privacy</h2>
+        <p>We use cookies to run the site, understand what you like and show relevant offers. You choose what's allowed. <a href="#">Cookie policy</a></p>
+        <p class="gpc-note" id="gpc-note" hidden>🛡 Your browser sends <b>Global Privacy Control</b>, so marketing stays off by default.</p>
+      </div>
+      <div class="banner-actions">
+        <button type="button" class="btn ghost" data-open-prefs>Customize</button>
+        <button type="button" class="btn outline" data-reject>Reject all</button>
+        <button type="button" class="btn solid" data-accept>Accept all</button>
+      </div>
+    </section>
+
+    <!-- Preference center -->
+    <dialog class="prefs" id="prefs" aria-labelledby="prefs-title">
+      <form method="dialog" class="prefs-box" id="prefs-form">
+        <header class="prefs-head">
+          <h2 id="prefs-title">Cookie preferences</h2>
+          <button type="button" class="close" id="prefs-close" aria-label="Close">✕</button>
+        </header>
+        <p class="prefs-intro">Choose which cookies you allow. Strictly necessary cookies can't be turned off — the site wouldn't work without them.</p>
+        <div class="cats" id="cats"></div>
+        <footer class="prefs-foot">
+          <button type="button" class="btn outline" data-reject>Reject all</button>
+          <div>
+            <button type="button" class="btn ghost" id="save">Save choices</button>
+            <button type="button" class="btn solid" data-accept>Accept all</button>
+          </div>
+        </footer>
+      </form>
+    </dialog>
+
+    <!-- Reopen button (after a choice is made) -->
+    <button type="button" class="reopen" id="reopen" aria-label="Cookie preferences" hidden>🍪</button>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

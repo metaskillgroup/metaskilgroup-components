@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workspace Sidebar | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <div class="app">
+      <aside class="sidebar" id="sidebar" aria-label="Sidebar">
+        <!-- Workspace switcher + collapse -->
+        <div class="sb-top">
+          <div class="ws">
+            <button type="button" class="ws-btn" id="ws-btn" aria-haspopup="menu" aria-expanded="false">
+              <span class="ws-logo" id="ws-logo">A</span>
+              <span class="ws-text">
+                <b id="ws-name">Acme Inc</b>
+                <small id="ws-plan">Pro · 12 members</small>
+              </span>
+              <svg class="ws-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9l4-4 4 4M8 15l4 4 4-4" /></svg>
+            </button>
+            <div class="ws-menu" id="ws-menu" role="menu"></div>
+          </div>
+          <button type="button" class="collapse-btn" id="collapse-btn" aria-label="Collapse sidebar ( [ )" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3" /><path d="M9 4v16M15 10l-2 2 2 2" /></svg>
+          </button>
+        </div>
+
+        <label class="sb-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
+          <input type="search" id="nav-search" placeholder="Search menu" aria-label="Search menu" />
+          <kbd>/</kbd>
+        </label>
+
+        <!-- Navigation is rendered from script.js -->
+        <nav class="sb-nav" id="sb-nav" aria-label="Main">
+          <span class="indicator" aria-hidden="true"></span>
+        </nav>
+
+        <!-- Storage / upgrade card -->
+        <div class="upgrade">
+          <div class="up-head">
+            <b>Storage</b>
+            <span id="storage-text">7.4 of 10 GB</span>
+          </div>
+          <div class="up-bar"><i id="storage-bar"></i></div>
+          <p>Upgrade to Business for 1 TB and unlimited guests.</p>
+          <a href="#" class="up-btn">Upgrade plan</a>
+        </div>
+
+        <!-- User -->
+        <div class="user">
+          <button type="button" class="user-btn" id="user-btn" aria-haspopup="menu" aria-expanded="false">
+            <span class="u-av">RS<i class="u-status" id="u-status" data-status="online"></i></span>
+            <span class="u-text"><b>Riya Sharma</b><small>riya@acme.com</small></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.5" /><circle cx="12" cy="12" r="1.5" /><circle cx="12" cy="19" r="1.5" /></svg>
+          </button>
+          <div class="user-menu" id="user-menu" role="menu">
+            <button type="button" role="menuitemradio" data-status="online" aria-checked="true"><i></i>Online</button>
+            <button type="button" role="menuitemradio" data-status="away" aria-checked="false"><i></i>Away</button>
+            <button type="button" role="menuitemradio" data-status="dnd" aria-checked="false"><i></i>Do not disturb</button>
+            <hr />
+            <a href="#" role="menuitem">Account settings</a>
+            <a href="#" role="menuitem" class="danger">Log out</a>
+          </div>
+        </div>
+      </aside>
+
+      <div class="backdrop" id="backdrop"></div>
+
+      <!-- Main area -->
+      <div class="main">
+        <header class="topbar">
+          <button type="button" class="menu-btn" id="menu-btn" aria-label="Open sidebar" aria-controls="sidebar" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" /></svg>
+          </button>
+          <div class="crumbs" id="crumbs"></div>
+          <span class="shortcut">Press <kbd>[</kbd> to collapse</span>
+        </header>
+        <section class="content">
+          <h1 id="page-title">Home</h1>
+          <p class="sub" id="page-sub">Your workspace at a glance.</p>
+          <div class="grid">
+            <div class="card big"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card wide"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Shared tooltip + flyout used when the sidebar is collapsed -->
+    <div class="tooltip" id="tooltip" role="tooltip"></div>
+    <div class="flyout" id="flyout"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

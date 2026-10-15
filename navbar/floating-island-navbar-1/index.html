@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floating Island Navbar | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <nav class="island" id="island" aria-label="Main">
+      <a href="#home" class="brand" aria-label="Orbit — back to top">
+        <svg class="ring" viewBox="0 0 44 44" aria-hidden="true">
+          <circle class="ring-track" cx="22" cy="22" r="19" />
+          <circle class="ring-fill" id="ring-fill" cx="22" cy="22" r="19" />
+        </svg>
+        <span class="brand-dot" aria-hidden="true"></span>
+      </a>
+
+      <ul class="links" id="links">
+        <li><a href="#home" data-section="home">Home</a></li>
+        <li><a href="#features" data-section="features">Features</a></li>
+        <li><a href="#work" data-section="work">Work</a></li>
+        <li><a href="#pricing" data-section="pricing">Pricing</a></li>
+        <li><a href="#contact" data-section="contact">Contact</a></li>
+        <li class="pill" aria-hidden="true"></li>
+      </ul>
+
+      <div class="tools">
+        <div class="pop">
+          <button type="button" class="icon-btn" id="bell-btn" aria-label="Notifications" aria-expanded="false" aria-controls="bell-panel">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0" /></svg>
+            <span class="badge" id="badge">3</span>
+          </button>
+          <div class="panel" id="bell-panel" role="dialog" aria-label="Notifications">
+            <div class="panel-head">
+              <strong>Notifications</strong>
+              <button type="button" class="link-btn" id="mark-all">Mark all as read</button>
+            </div>
+            <ul class="notes" id="notes"></ul>
+          </div>
+        </div>
+
+        <div class="pop">
+          <button type="button" class="avatar-btn" id="avatar-btn" aria-label="Account menu" aria-expanded="false" aria-controls="avatar-panel">
+            <span class="avatar">AK</span>
+            <span class="status-dot" id="status-dot" data-status="online"></span>
+          </button>
+          <div class="panel" id="avatar-panel" role="menu" aria-label="Account">
+            <div class="profile">
+              <span class="avatar big">AK</span>
+              <div>
+                <strong>Ankul Kumar</strong>
+                <small>ankul@orbit.dev</small>
+              </div>
+            </div>
+            <div class="status-row" role="group" aria-label="Status">
+              <button type="button" data-status="online" aria-pressed="true"><i></i>Online</button>
+              <button type="button" data-status="away" aria-pressed="false"><i></i>Away</button>
+              <button type="button" data-status="dnd" aria-pressed="false"><i></i>Busy</button>
+            </div>
+            <a href="#" role="menuitem">👤 Profile</a>
+            <a href="#" role="menuitem">⚙️ Settings</a>
+            <a href="#" role="menuitem">💳 Billing <span class="tag">Pro</span></a>
+            <a href="#" role="menuitem">⌨️ Shortcuts <kbd>?</kbd></a>
+            <hr />
+            <a href="#" role="menuitem" class="danger">↩ Sign out</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile bottom tab bar -->
+    <nav class="tabbar" aria-label="Sections">
+      <span class="tab-bubble" aria-hidden="true"></span>
+      <a href="#home" data-section="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" /></svg><span>Home</span></a>
+      <a href="#features" data-section="features"><svg viewBox="0 0 24 24"><path d="M13 3L4 14h7l-1 7 9-11h-7z" /></svg><span>Features</span></a>
+      <a href="#work" data-section="work"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg><span>Work</span></a>
+      <a href="#pricing" data-section="pricing"><svg viewBox="0 0 24 24"><path d="M20 12l-8 8-9-9V3h8z" /><circle cx="7.5" cy="7.5" r="1.5" /></svg><span>Pricing</span></a>
+      <a href="#contact" data-section="contact"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg><span>Contact</span></a>
+    </nav>
+
+    <!-- Demo sections -->
+    <main>
+      <section id="home" class="sec" style="--c1: #7c5cff; --c2: #22d3ee">
+        <span class="eyebrow">Floating island navbar</span>
+        <h1>Navigation that<br />floats above it all.</h1>
+        <p>Scroll — the island shrinks, the ring around the logo fills and the active section follows you. Try the bell and the avatar.</p>
+      </section>
+      <section id="features" class="sec" style="--c1: #f43f5e; --c2: #f59e0b">
+        <h2>Features</h2>
+        <div class="cards"><div></div><div></div><div></div></div>
+      </section>
+      <section id="work" class="sec" style="--c1: #10b981; --c2: #3b82f6">
+        <h2>Work</h2>
+        <div class="cards"><div></div><div></div><div></div></div>
+      </section>
+      <section id="pricing" class="sec" style="--c1: #a855f7; --c2: #ec4899">
+        <h2>Pricing</h2>
+        <div class="cards"><div></div><div></div><div></div></div>
+      </section>
+      <section id="contact" class="sec" style="--c1: #06b6d4; --c2: #84cc16">
+        <h2>Contact</h2>
+        <div class="cards"><div></div><div></div><div></div></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

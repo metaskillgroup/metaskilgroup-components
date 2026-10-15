@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Reviews Section | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <main class="page">
+      <header class="product">
+        <div class="p-thumb" aria-hidden="true">🎧</div>
+        <div>
+          <span class="eyebrow">Customer reviews</span>
+          <h1>Aurora ANC Wireless Headphones</h1>
+        </div>
+      </header>
+
+      <div class="layout">
+        <!-- Summary -->
+        <aside class="summary" aria-label="Rating summary">
+          <div class="avg">
+            <b id="avg">0.0</b>
+            <div>
+              <div class="stars big" id="avg-stars"></div>
+              <small id="count">Based on 0 reviews</small>
+            </div>
+          </div>
+          <ul class="bars" id="bars"></ul>
+          <p class="recommend" id="recommend"></p>
+          <div class="mentions">
+            <small>People mention</small>
+            <div class="mention-chips" id="mentions"></div>
+          </div>
+          <button type="button" class="btn primary full" id="write-btn">✍️ Write a review</button>
+        </aside>
+
+        <!-- Reviews -->
+        <section class="reviews" aria-label="Reviews">
+          <div class="toolbar">
+            <label class="search">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
+              <input type="search" id="search" placeholder="Search reviews" aria-label="Search reviews" />
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="with-photos" />
+              <span>📷 With photos</span>
+            </label>
+            <label class="sort">
+              <span class="sr-only">Sort by</span>
+              <select id="sort">
+                <option value="helpful">Most helpful</option>
+                <option value="newest">Newest</option>
+                <option value="high">Highest rating</option>
+                <option value="low">Lowest rating</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="active-filters" id="active-filters"></div>
+          <p class="result-line" id="result-line" aria-live="polite"></p>
+          <ul class="list" id="list"></ul>
+          <div class="empty" id="empty" hidden>
+            <span aria-hidden="true">🔎</span>
+            <p>No reviews match these filters.</p>
+          </div>
+          <button type="button" class="btn ghost more" id="more">Show more reviews</button>
+        </section>
+      </div>
+    </main>
+
+    <!-- Write a review -->
+    <dialog class="modal" id="write" aria-labelledby="write-title">
+      <form class="modal-box" id="review-form" novalidate>
+        <header>
+          <h2 id="write-title">Write a review</h2>
+          <button type="button" class="close" id="write-close" aria-label="Close">✕</button>
+        </header>
+
+        <div class="field">
+          <span id="rate-label">Your rating</span>
+          <div class="star-input" id="star-input" role="radiogroup" aria-labelledby="rate-label"></div>
+          <small class="rate-word" id="rate-word">Tap a star</small>
+          <small class="err" id="err-rating"></small>
+        </div>
+        <label class="field">
+          <span>Title</span>
+          <input name="title" maxlength="80" placeholder="Sum it up in a few words" />
+          <small class="err" id="err-title"></small>
+        </label>
+        <label class="field">
+          <span>Your review</span>
+          <textarea name="body" rows="4" maxlength="800" placeholder="What did you like or dislike? How do you use it?"></textarea>
+          <small class="hint" id="body-count">0 / 20 characters minimum</small>
+          <small class="err" id="err-body"></small>
+        </label>
+        <div class="row">
+          <label class="field">
+            <span>Name</span>
+            <input name="name" autocomplete="given-name" placeholder="Your first name" />
+            <small class="err" id="err-name"></small>
+          </label>
+          <div class="field">
+            <span>Would you recommend it?</span>
+            <div class="yesno" role="radiogroup" aria-label="Would you recommend it?">
+              <button type="button" data-rec="yes" aria-checked="true" role="radio">👍 Yes</button>
+              <button type="button" data-rec="no" aria-checked="false" role="radio">👎 No</button>
+            </div>
+          </div>
+        </div>
+        <label class="photo-pick">
+          <input type="file" id="photo-input" accept="image/*" multiple hidden />
+          📷 Add photos <small>(optional, up to 3)</small>
+        </label>
+        <div class="photo-preview" id="photo-preview"></div>
+
+        <footer>
+          <button type="button" class="btn ghost" id="write-cancel">Cancel</button>
+          <button type="submit" class="btn primary">Post review</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <!-- Photo lightbox -->
+    <dialog class="lightbox" id="lightbox" aria-label="Photo">
+      <button type="button" class="close light" id="lb-close" aria-label="Close">✕</button>
+      <div class="lb-img" id="lb-img"></div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

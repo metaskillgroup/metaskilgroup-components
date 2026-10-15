@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Onboarding Wizard | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <main class="page">
+      <section class="wizard" aria-labelledby="wiz-title">
+        <header class="wiz-head">
+          <span class="brand"><i aria-hidden="true"></i>Craftly</span>
+          <span class="step-count" id="step-count">Step 1 of 4</span>
+        </header>
+
+        <div class="draft" id="draft" hidden>
+          <span>💾 We restored your saved progress.</span>
+          <button type="button" id="start-over">Start over</button>
+        </div>
+
+        <!-- Stepper -->
+        <ol class="stepper" id="stepper">
+          <li class="track" aria-hidden="true"><i id="track-fill"></i></li>
+        </ol>
+
+        <form id="wizard" novalidate>
+          <!-- Step 1 -->
+          <fieldset class="step" data-step="0">
+            <legend id="wiz-title">Create your account</legend>
+            <p class="lead">It takes less than a minute. No credit card needed.</p>
+            <div class="grid-2">
+              <label class="field">
+                <span>Full name</span>
+                <input name="name" autocomplete="name" placeholder="Ankul Agarwal" />
+                <small class="err"></small>
+              </label>
+              <label class="field">
+                <span>Work email</span>
+                <input name="email" type="email" autocomplete="email" placeholder="you@company.com" />
+                <small class="err"></small>
+              </label>
+            </div>
+            <label class="field">
+              <span>Password</span>
+              <div class="pw">
+                <input name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" />
+                <button type="button" class="eye" aria-label="Show password" aria-pressed="false">👁</button>
+              </div>
+              <div class="meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+              <ul class="checks" id="pw-checks">
+                <li data-rule="len">8+ characters</li>
+                <li data-rule="num">A number</li>
+                <li data-rule="upper">An uppercase letter</li>
+                <li data-rule="sym">A symbol</li>
+              </ul>
+              <small class="err"></small>
+            </label>
+          </fieldset>
+
+          <!-- Step 2 -->
+          <fieldset class="step" data-step="1" hidden>
+            <legend>Tell us about you</legend>
+            <p class="lead">We'll tailor templates and tips to how you work.</p>
+            <div class="field">
+              <span>Pick an avatar</span>
+              <div class="avatars" id="avatars" role="radiogroup" aria-label="Avatar"></div>
+            </div>
+            <div class="field">
+              <span>Your role</span>
+              <div class="chips" data-name="role" data-single role="radiogroup" aria-label="Role">
+                <button type="button" data-value="Designer">🎨 Designer</button>
+                <button type="button" data-value="Developer">💻 Developer</button>
+                <button type="button" data-value="Founder">🚀 Founder</button>
+                <button type="button" data-value="Student">🎓 Student</button>
+                <button type="button" data-value="Other">✨ Other</button>
+              </div>
+              <small class="err"></small>
+            </div>
+            <div class="field">
+              <span>Team size</span>
+              <div class="segment" data-name="team" data-single role="radiogroup" aria-label="Team size">
+                <button type="button" data-value="Just me">Just me</button>
+                <button type="button" data-value="2–10">2–10</button>
+                <button type="button" data-value="11–50">11–50</button>
+                <button type="button" data-value="50+">50+</button>
+              </div>
+              <small class="err"></small>
+            </div>
+            <div class="field">
+              <span>What will you build? <em>(pick any)</em></span>
+              <div class="chips" data-name="goals" aria-label="Goals">
+                <button type="button" data-value="Websites">Websites</button>
+                <button type="button" data-value="Mobile apps">Mobile apps</button>
+                <button type="button" data-value="Dashboards">Dashboards</button>
+                <button type="button" data-value="Landing pages">Landing pages</button>
+                <button type="button" data-value="Portfolios">Portfolios</button>
+              </div>
+              <small class="err"></small>
+            </div>
+          </fieldset>
+
+          <!-- Step 3 -->
+          <fieldset class="step" data-step="2" hidden>
+            <legend>Choose your plan</legend>
+            <p class="lead">Switch or cancel anytime. Yearly saves 20%.</p>
+            <div class="billing" role="radiogroup" aria-label="Billing">
+              <button type="button" data-billing="monthly" aria-checked="true" role="radio">Monthly</button>
+              <button type="button" data-billing="yearly" aria-checked="false" role="radio">Yearly <b>-20%</b></button>
+            </div>
+            <div class="plans" id="plans" role="radiogroup" aria-label="Plan"></div>
+            <div class="field">
+              <span>Add-ons</span>
+              <div class="addons" id="addons"></div>
+            </div>
+            <div class="total">Total <b id="total">₹0</b><small id="total-note">/ month</small></div>
+          </fieldset>
+
+          <!-- Step 4 -->
+          <fieldset class="step" data-step="3" hidden>
+            <legend>Review &amp; confirm</legend>
+            <p class="lead">Check everything looks right. You can edit any section.</p>
+            <div class="review" id="review"></div>
+            <label class="terms">
+              <input type="checkbox" name="terms" />
+              <span class="box" aria-hidden="true"></span>
+              <span>I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</span>
+            </label>
+            <small class="err" id="terms-err"></small>
+          </fieldset>
+
+          <!-- Success -->
+          <div class="success" id="success" hidden>
+            <div class="badge" aria-hidden="true">🎉</div>
+            <h2>Welcome aboard, <span id="success-name"></span>!</h2>
+            <p>Your workspace is ready. We've emailed your receipt and a quick-start guide.</p>
+            <a href="#" class="btn primary">Go to dashboard →</a>
+          </div>
+
+          <footer class="wiz-foot" id="wiz-foot">
+            <button type="button" class="btn ghost" id="back">← Back</button>
+            <span class="hint">Press <kbd>Enter</kbd> to continue</span>
+            <button type="submit" class="btn primary" id="next">
+              <span class="label">Continue</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </footer>
+        </form>
+      </section>
+    </main>
+
+    <canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+
+    <script src="script.js"></script>
+  </body>
+</html>

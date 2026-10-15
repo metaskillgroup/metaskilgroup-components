@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morphing Modal Dialogs | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <main class="stage">
+      <header class="intro">
+        <span class="eyebrow">Modal &amp; Dialog</span>
+        <h1>Buttons that <span>become</span> the dialog</h1>
+        <p>Click a button — it morphs into its modal. Press <kbd>Esc</kbd> or click outside to send it back.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card">
+          <span class="card-icon danger" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></span>
+          <h2>Confirm action</h2>
+          <p>A destructive action that asks you to type the name before it runs.</p>
+          <button type="button" class="trigger danger" data-modal="modal-confirm">Delete project</button>
+        </article>
+
+        <article class="card">
+          <span class="card-icon brand" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <h2>Form dialog</h2>
+          <p>A newsletter signup with validation, loading state and success screen.</p>
+          <button type="button" class="trigger brand" data-modal="modal-form">Subscribe</button>
+        </article>
+
+        <article class="card">
+          <span class="card-icon teal" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></span>
+          <h2>Lightbox</h2>
+          <p>An image viewer with captions and keyboard arrows to browse.</p>
+          <button type="button" class="trigger teal" data-modal="modal-photo">View gallery</button>
+        </article>
+      </div>
+    </main>
+
+    <!-- Confirm dialog -->
+    <dialog class="modal" id="modal-confirm" aria-labelledby="confirm-title">
+      <div class="modal-body">
+        <button type="button" class="modal-close" aria-label="Close">✕</button>
+        <span class="modal-icon danger" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.5v.01"/></svg></span>
+        <h2 id="confirm-title">Delete “portfolio-site”?</h2>
+        <p>This permanently removes the project, its 24 deployments and all environment variables. This can't be undone.</p>
+        <label class="field">
+          <span>Type <b>portfolio-site</b> to confirm</span>
+          <input type="text" id="confirm-input" autocomplete="off" spellcheck="false" />
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="btn ghost" data-close>Cancel</button>
+          <button type="button" class="btn danger" id="confirm-delete" disabled>Delete project</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Form dialog -->
+    <dialog class="modal" id="modal-form" aria-labelledby="form-title">
+      <div class="modal-body">
+        <button type="button" class="modal-close" aria-label="Close">✕</button>
+        <form id="subscribe-form" novalidate>
+          <span class="modal-icon brand" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13l3-8h12l3 8v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M3 13h5l1 3h6l1-3h5"/></svg></span>
+          <h2 id="form-title">Get the weekly digest</h2>
+          <p>One email every Friday with new components, tips and freebies. No spam.</p>
+          <label class="field">
+            <span>Email address</span>
+            <input type="email" id="email" placeholder="you@example.com" required />
+            <small class="error" id="email-error" aria-live="polite"></small>
+          </label>
+          <fieldset class="chips">
+            <legend>I'm interested in</legend>
+            <label><input type="checkbox" checked /> <span>UI components</span></label>
+            <label><input type="checkbox" /> <span>Templates</span></label>
+            <label><input type="checkbox" /> <span>Tutorials</span></label>
+          </fieldset>
+          <button type="submit" class="btn brand full" id="subscribe-btn">
+            <span class="label">Subscribe</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+        <div class="success" hidden>
+          <svg viewBox="0 0 52 52" aria-hidden="true">
+            <circle cx="26" cy="26" r="24" />
+            <path d="M15 27l7 7 15-16" />
+          </svg>
+          <h2>You're in! 🎉</h2>
+          <p>Check your inbox to confirm your email.</p>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Lightbox dialog -->
+    <dialog class="modal modal-photo" id="modal-photo" aria-labelledby="photo-title">
+      <div class="modal-body">
+        <button type="button" class="modal-close light" aria-label="Close">✕</button>
+        <figure class="photo">
+          <div class="photo-art" id="photo-art"></div>
+          <figcaption>
+            <div>
+              <h2 id="photo-title"></h2>
+              <p id="photo-caption"></p>
+            </div>
+            <span class="photo-count" id="photo-count"></span>
+          </figcaption>
+        </figure>
+        <button type="button" class="nav prev" aria-label="Previous photo">‹</button>
+        <button type="button" class="nav next" aria-label="Next photo">›</button>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

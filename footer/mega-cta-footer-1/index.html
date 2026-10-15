@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mega CTA Footer | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <main class="page-content">
+      <p class="hint">↓ Scroll to the footer</p>
+    </main>
+
+    <footer class="footer">
+      <!-- Call to action -->
+      <section class="cta">
+        <div class="cta-grid" aria-hidden="true"></div>
+        <div class="cta-text">
+          <span class="eyebrow">Start today — free for 14 days</span>
+          <h2>Ready to ship your<br />next big idea?</h2>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn primary">Start building →</a>
+          <a href="#" class="btn ghost">Book a demo</a>
+        </div>
+      </section>
+
+      <div class="main">
+        <!-- Brand + newsletter -->
+        <div class="brand-col">
+          <a href="#" class="logo"><span class="logo-mark" aria-hidden="true"></span>Lumen</a>
+          <p class="tagline">The design-to-code platform for teams who care about details.</p>
+
+          <form class="newsletter" id="newsletter" novalidate>
+            <label for="nl-email">Get product updates — one email a month.</label>
+            <div class="nl-row">
+              <input type="email" id="nl-email" placeholder="you@company.com" autocomplete="email" />
+              <button type="submit" aria-label="Subscribe">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </button>
+            </div>
+            <small class="nl-msg" id="nl-msg" aria-live="polite"></small>
+          </form>
+
+          <a href="#" class="status" id="status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>All systems operational</span>
+            <small id="uptime">99.98% uptime</small>
+          </a>
+        </div>
+
+        <!-- Sitemap columns are rendered from script.js -->
+        <nav class="sitemap" id="sitemap" aria-label="Footer"></nav>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="bottom">
+        <p class="copy">© <span id="year"></span> Lumen Labs Pvt. Ltd. · Made with ♥ in India</p>
+
+        <div class="clock" aria-live="off">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+          <span id="clock">--:--</span> in Bengaluru
+        </div>
+
+        <div class="selects">
+          <div class="select" data-select="lang">
+            <button type="button" class="select-btn" aria-haspopup="listbox" aria-expanded="false">
+              🌐 <span class="select-value"></span>
+            </button>
+            <ul class="select-list" role="listbox" tabindex="-1"></ul>
+          </div>
+          <div class="select" data-select="currency">
+            <button type="button" class="select-btn" aria-haspopup="listbox" aria-expanded="false">
+              <span class="select-value"></span>
+            </button>
+            <ul class="select-list" role="listbox" tabindex="-1"></ul>
+          </div>
+        </div>
+
+        <ul class="socials" id="socials"></ul>
+      </div>
+
+      <!-- Giant wordmark — a spotlight follows the mouse and fills the letters -->
+      <div class="wordmark" id="wordmark" aria-hidden="true">
+        <span class="outline">LUMEN</span>
+        <span class="fill">LUMEN</span>
+      </div>
+
+      <button type="button" class="to-top" id="to-top" aria-label="Back to top">
+        <svg class="to-top-ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" /></svg>
+        <svg class="to-top-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
+      </button>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

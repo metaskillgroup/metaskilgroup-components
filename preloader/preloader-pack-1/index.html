@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preloader Pack | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+
+    <!-- Fullscreen preloader (plays on page load and from the "Play fullscreen" buttons) -->
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <main class="site">
+      <header class="intro">
+        <span class="eyebrow">Preloader pack</span>
+        <h1>First impressions, <span>loaded.</span></h1>
+        <p>Three full-screen loading screens with their own exit animations. Each one is a single function — pick one and call it while your page loads.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card">
+          <div class="stage" data-loader="counter"></div>
+          <div class="card-meta">
+            <div>
+              <h2>Counter + curtain</h2>
+              <p>Big percentage, progress line, slides up.</p>
+            </div>
+            <button type="button" class="play" data-play="counter">Play fullscreen</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="stage" data-loader="morph"></div>
+          <div class="card-meta">
+            <div>
+              <h2>Morphing shape</h2>
+              <p>Liquid blob, bouncing dots, circle reveal.</p>
+            </div>
+            <button type="button" class="play" data-play="morph">Play fullscreen</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="stage" data-loader="stripes"></div>
+          <div class="card-meta">
+            <div>
+              <h2>Wave letters + stripes</h2>
+              <p>Bouncing brand name, striped reveal.</p>
+            </div>
+            <button type="button" class="play" data-play="stripes">Play fullscreen</button>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,432 @@
+/* Importing Google Fonts - Rubik + JetBrains Mono */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+:root {
+  --bg: #f4f5f9;
+  --card: #ffffff;
+  --text: #171a26;
+  --muted: #6b7086;
+  --border: #e3e5ee;
+  --success: #16a34a;
+  --error: #e5383b;
+  --warning: #e8890c;
+  --info: #2f6bff;
+  --promise: #7c3aed;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(47, 107, 255, 0.08), transparent 35%),
+    radial-gradient(circle at 100% 100%, rgba(124, 58, 237, 0.08), transparent 35%),
+    var(--bg);
+  color: var(--text);
+}
+
+.page {
+  display: grid;
+  align-content: center;
+  min-height: 100vh;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 70px 20px 120px;
+}
+
+/* ---------- Intro ---------- */
+.intro {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--info);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  margin: 14px 0 12px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.intro h1 span {
+  background: linear-gradient(90deg, var(--info), var(--promise));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ---------- Playground ---------- */
+.playground {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--card);
+  box-shadow: 0 30px 70px -40px rgba(23, 26, 38, 0.3);
+}
+
+.group h2 {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fire {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.fire-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fafbfd;
+  color: var(--text);
+  font-size: 0.93rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.fire-btn:hover {
+  border-color: currentColor;
+  box-shadow: 0 6px 18px -10px currentColor;
+}
+
+.fire-btn:active {
+  transform: scale(0.97);
+}
+
+.fire-btn:focus-visible,
+.positions button:focus-visible {
+  outline: 3px solid rgba(47, 107, 255, 0.4);
+  outline-offset: 2px;
+}
+
+.fire-btn i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c);
+}
+
+.fire-btn.success { --c: var(--success); }
+.fire-btn.error { --c: var(--error); }
+.fire-btn.warning { --c: var(--warning); }
+.fire-btn.info { --c: var(--info); }
+.fire-btn.promise { --c: var(--promise); }
+.fire-btn.undo { --c: var(--text); }
+
+/* Mini screen to pick a corner */
+.positions {
+  display: grid;
+  grid-template-columns: repeat(3, 34px);
+  grid-template-rows: 34px 34px;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 150px;
+  height: 104px;
+  padding: 8px;
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  background: #fafbfd;
+}
+
+.positions button {
+  border: 0;
+  border-radius: 8px;
+  background: #e6e8f1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.positions button:hover {
+  transform: scale(1.08);
+}
+
+.positions button[aria-checked="true"] {
+  background: var(--info);
+}
+
+.code {
+  grid-column: 1 / -1;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: #11131c;
+  color: #cdd3f0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+
+.code code {
+  font-family: inherit;
+}
+
+/* =========================================================
+   Toaster
+   ========================================================= */
+.toaster {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(370px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.toaster.top-left,
+.toaster.top-center,
+.toaster.top-right {
+  top: 20px;
+}
+
+.toaster.bottom-left,
+.toaster.bottom-center,
+.toaster.bottom-right {
+  bottom: 20px;
+  flex-direction: column-reverse;
+}
+
+.toaster.top-left,
+.toaster.bottom-left {
+  left: 20px;
+}
+
+.toaster.top-right,
+.toaster.bottom-right {
+  right: 20px;
+}
+
+.toaster.top-center,
+.toaster.bottom-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toast {
+  --c: var(--info);
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 12px;
+  padding: 14px 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: 0 18px 40px -18px rgba(23, 26, 38, 0.35), 0 2px 6px rgba(23, 26, 38, 0.05);
+  overflow: hidden;
+  pointer-events: auto;
+  touch-action: pan-y;
+  user-select: none;
+  animation: toastIn 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+.top-left .toast,
+.top-center .toast,
+.top-right .toast {
+  --from: -20px;
+}
+
+.toast {
+  --from: 20px;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(var(--from)) scale(0.94);
+  }
+}
+
+.toast.success { --c: var(--success); }
+.toast.error { --c: var(--error); }
+.toast.warning { --c: var(--warning); }
+.toast.info { --c: var(--info); }
+.toast.loading { --c: var(--promise); }
+
+/* Coloured strip on the left */
+.toast::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background: var(--c);
+}
+
+.t-icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--c) 14%, transparent);
+  color: var(--c);
+}
+
+.t-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  animation: draw 0.45s 0.15s ease forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.t-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid color-mix(in srgb, var(--c) 25%, transparent);
+  border-top-color: var(--c);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.t-body {
+  padding-top: 4px;
+  min-width: 0;
+}
+
+.t-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.t-msg {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.t-action {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--text);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.t-close {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.t-close:hover {
+  background: #f1f2f7;
+  color: var(--text);
+}
+
+/* Time left — runs as a CSS animation, pauses while you hover the stack */
+.t-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--c);
+  opacity: 0.55;
+  transform-origin: left;
+  animation: shrink var(--duration, 4000ms) linear forwards;
+}
+
+.toaster:hover .t-progress,
+.toast:focus-within .t-progress {
+  animation-play-state: paused;
+}
+
+@keyframes shrink {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .playground {
+    grid-template-columns: 1fr;
+  }
+
+  .fire {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .toaster.top-left,
+  .toaster.top-right,
+  .toaster.bottom-left,
+  .toaster.bottom-right {
+    left: 16px;
+    right: 16px;
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast,
+  .t-icon svg {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

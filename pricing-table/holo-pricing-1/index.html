@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holo Pricing Table | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <section class="pricing">
+      <div class="glow glow-a" aria-hidden="true"></div>
+      <div class="glow glow-b" aria-hidden="true"></div>
+
+      <div class="container">
+        <header class="p-head">
+          <span class="eyebrow">Pricing</span>
+          <h1>Simple plans that <em>grow with you</em></h1>
+          <p>Start free, upgrade when you're ready. No hidden fees, cancel anytime.</p>
+
+          <div class="controls">
+            <div class="billing" role="radiogroup" aria-label="Billing period">
+              <button type="button" class="billing-opt is-active" role="radio" aria-checked="true" data-period="monthly">Monthly</button>
+              <button type="button" class="billing-opt" role="radio" aria-checked="false" data-period="yearly">
+                Yearly <span class="save">-20%</span>
+              </button>
+              <span class="billing-pill" aria-hidden="true"></span>
+            </div>
+
+            <label class="currency">
+              <span class="sr-only">Currency</span>
+              <select id="currency">
+                <option value="USD">$ USD</option>
+                <option value="INR">₹ INR</option>
+                <option value="EUR">€ EUR</option>
+              </select>
+            </label>
+          </div>
+        </header>
+
+        <!-- Plan cards are rendered from script.js -->
+        <div class="plans" id="plans"></div>
+
+        <div class="compare-wrap">
+          <button type="button" class="compare-toggle" aria-expanded="false" aria-controls="compare">
+            Compare all features
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+          </button>
+          <div class="compare" id="compare" hidden>
+            <table>
+              <thead id="compare-head"></thead>
+              <tbody id="compare-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <p class="p-foot">All prices exclude taxes. Need something custom? <a href="#">Talk to sales →</a></p>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

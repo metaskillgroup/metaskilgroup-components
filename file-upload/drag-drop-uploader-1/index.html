@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag &amp; Drop File Uploader | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <main class="page">
+      <section class="uploader" aria-labelledby="up-title">
+        <header class="up-head">
+          <div>
+            <h1 id="up-title">Upload files</h1>
+            <p>Drag files anywhere on this page, browse, or paste an image with <kbd>Ctrl</kbd> <kbd>V</kbd>.</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="auto" checked />
+            <span class="track" aria-hidden="true"><i></i></span>
+            Auto upload
+          </label>
+        </header>
+
+        <!-- Drop zone -->
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-describedby="dz-hint">
+          <div class="dz-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 48"><path class="cloud" d="M18 40h30a12 12 0 0 0 1.5-23.9A17 17 0 0 0 16.6 19 10.5 10.5 0 0 0 18 40z" /><path class="arrow" d="M32 34V18M25 24l7-7 7 7" /></svg>
+          </div>
+          <p class="dz-title"><b>Drop files here</b> or <span class="link">browse</span></p>
+          <p class="dz-hint" id="dz-hint">PNG, JPG, PDF, ZIP or DOCX · up to 10 MB each</p>
+          <input type="file" id="file-input" multiple hidden />
+        </div>
+
+        <button type="button" class="samples" id="samples">✨ Try it with sample files</button>
+
+        <!-- Overall progress -->
+        <div class="overall" id="overall" hidden>
+          <div class="ov-row">
+            <span id="ov-text">0 of 0 uploaded</span>
+            <div class="ov-actions">
+              <button type="button" id="start-all" hidden>Upload all</button>
+              <button type="button" id="clear-done">Clear completed</button>
+            </div>
+          </div>
+          <div class="ov-bar"><i id="ov-bar"></i></div>
+        </div>
+
+        <ul class="files" id="files" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <!-- Shown while dragging files over the window -->
+    <div class="drag-overlay" id="drag-overlay" aria-hidden="true">
+      <div>
+        <span>📂</span>
+        <b>Drop to upload</b>
+        <small>Release anywhere</small>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

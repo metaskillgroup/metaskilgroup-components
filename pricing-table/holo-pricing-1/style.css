@@ -1,0 +1,531 @@
+/* Importing Google Fonts - Plus Jakarta Sans + Fraunces */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+:root {
+  --bg: #0b0d17;
+  --card: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.09);
+  --text: #f4f4f8;
+  --muted: #9a9cb5;
+  --accent: #8b7cff;
+  --accent-2: #3ee0cf;
+  --good: #3ee0cf;
+  --bad: #5b5e78;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.pricing {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 80px 20px 70px;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ---------- Background glow ---------- */
+.glow {
+  position: absolute;
+  z-index: -1;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.glow-a {
+  top: -120px;
+  left: -160px;
+  background: var(--accent);
+}
+
+.glow-b {
+  right: -180px;
+  bottom: 0;
+  background: var(--accent-2);
+  opacity: 0.2;
+}
+
+/* ---------- Heading ---------- */
+.p-head {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.p-head h1 {
+  margin: 18px 0 14px;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.p-head h1 em {
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.p-head p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ---------- Billing toggle + currency ---------- */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.billing {
+  position: relative;
+  display: inline-flex;
+  padding: 5px;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  background: var(--card);
+}
+
+.billing-opt {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.billing-opt.is-active {
+  color: #0b0d17;
+}
+
+.billing-opt:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+.save {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(62, 224, 207, 0.16);
+  color: var(--accent-2);
+  font-size: 0.72rem;
+  font-weight: 800;
+  transition: background 0.3s, color 0.3s;
+}
+
+.billing-opt.is-active .save {
+  background: rgba(11, 13, 23, 0.15);
+  color: #0b0d17;
+}
+
+.billing-pill {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 6px 24px rgba(139, 124, 255, 0.45);
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1), width 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.currency select {
+  appearance: none;
+  padding: 12px 38px 12px 18px;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  background: var(--card)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239a9cb5' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
+    no-repeat right 14px center / 16px;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.currency select option {
+  background: #161827;
+}
+
+/* ---------- Plan cards ---------- */
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 28px;
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
+}
+
+.plan:hover {
+  transform: translateY(-6px);
+  border-color: rgba(139, 124, 255, 0.4);
+}
+
+/* Spotlight that follows the cursor (set from script.js) */
+.plan::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(139, 124, 255, 0.14), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.plan:hover::before {
+  opacity: 1;
+}
+
+.plan.is-popular {
+  border-color: transparent;
+  background:
+    linear-gradient(#11132a, #11132a) padding-box,
+    linear-gradient(140deg, var(--accent), var(--accent-2)) border-box;
+  border: 1.5px solid transparent;
+  box-shadow: 0 30px 80px -30px rgba(139, 124, 255, 0.6);
+}
+
+.badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #0b0d17;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.plan-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 1.4rem;
+}
+
+.plan h2 {
+  margin-top: 18px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.plan-desc {
+  min-height: 44px;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin: 24px 0 4px;
+}
+
+.price .cur {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.price .amount {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.price .per {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.billed {
+  min-height: 20px;
+  color: var(--accent-2);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.plan-btn {
+  display: block;
+  margin: 24px 0 26px;
+  padding: 14px;
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.plan-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.plan-btn:active {
+  transform: scale(0.98);
+}
+
+.is-popular .plan-btn {
+  border: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #0b0d17;
+  box-shadow: 0 10px 30px -10px rgba(62, 224, 207, 0.6);
+}
+
+.features {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+}
+
+.features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.93rem;
+  line-height: 1.4;
+}
+
+.features li.off {
+  color: var(--bad);
+  text-decoration: line-through;
+}
+
+.features svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.features li svg {
+  stroke: var(--good);
+}
+
+.features li.off svg {
+  stroke: var(--bad);
+}
+
+/* ---------- Compare table ---------- */
+.compare-wrap {
+  margin-top: 46px;
+  text-align: center;
+}
+
+.compare-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.compare-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: transform 0.3s;
+}
+
+.compare-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.compare {
+  margin-top: 24px;
+  overflow-x: auto;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  background: var(--card);
+  animation: fadeDown 0.4s ease;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.compare table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.compare th,
+.compare td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--card-border);
+  text-align: center;
+}
+
+.compare th:first-child,
+.compare td:first-child {
+  text-align: left;
+  color: var(--muted);
+}
+
+.compare thead th {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.compare tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.compare .yes {
+  color: var(--good);
+  font-weight: 800;
+}
+
+.compare .no {
+  color: var(--bad);
+}
+
+.p-foot {
+  margin-top: 38px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.p-foot a {
+  color: var(--accent-2);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .plans {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .plan.is-popular {
+    order: -1;
+  }
+}
+
+@media (max-width: 420px) {
+  .billing-opt {
+    padding: 10px 16px;
+  }
+
+  .price .amount {
+    font-size: 2.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before {
+    transition: none !important;
+    animation: none !important;
+  }
+}

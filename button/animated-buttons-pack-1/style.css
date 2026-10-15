@@ -1,0 +1,546 @@
+/* Importing Google Fonts - Space Grotesk + JetBrains Mono */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+:root {
+  --bg: #0c0d13;
+  --tile: #14161f;
+  --tile-border: #232634;
+  --text: #f2f3f7;
+  --muted: #8a8fa8;
+  --violet: #7c5cff;
+  --cyan: #22d3ee;
+  --pink: #ff4ecd;
+  --green: #22c55e;
+  --red: #ff3d63;
+}
+
+/* Lets the conic border angle animate smoothly */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--bg);
+  color: var(--text);
+}
+
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+/* ---------- Intro ---------- */
+.intro {
+  max-width: 640px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--tile-border);
+  border-radius: 999px;
+  color: var(--cyan);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  margin: 16px 0 12px;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.intro h1 span {
+  background: linear-gradient(90deg, var(--violet), var(--pink), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ---------- Grid of tiles ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  padding: 30px 16px 44px;
+  border: 1px solid var(--tile-border);
+  border-radius: 20px;
+  background: var(--tile);
+}
+
+.tile-name {
+  position: absolute;
+  left: 18px;
+  bottom: 14px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+/* ---------- Base button ---------- */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border: 0;
+  border-radius: 14px;
+  background: #23263a;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s, color 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus-visible,
+.btn-push:focus-visible {
+  outline: 3px solid rgba(34, 211, 238, 0.6);
+  outline-offset: 3px;
+}
+
+/* 01 · Ripple */
+.btn-ripple {
+  background: var(--violet);
+  box-shadow: 0 10px 30px -10px rgba(124, 92, 255, 0.8);
+}
+
+.ripple {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0);
+  animation: ripple 0.65s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* 02 · Magnetic (moved by script.js) */
+.btn-magnetic {
+  background: linear-gradient(135deg, var(--pink), var(--violet));
+  box-shadow: 0 12px 30px -12px rgba(255, 78, 205, 0.8);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.btn-magnetic span {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 03 · Shine sweep (on hover + every few seconds) */
+.btn-shine {
+  border: 1px solid #34384f;
+  background: linear-gradient(180deg, #2b2f46, #1c1f2e);
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: skewX(-20deg);
+  animation: shine 3.2s ease-in-out infinite;
+}
+
+.btn-shine:hover::after {
+  animation: shine 0.9s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  35%,
+  100% {
+    left: 130%;
+  }
+}
+
+/* 04 · Liquid fill */
+.btn-liquid {
+  border: 2px solid var(--cyan);
+  background: transparent;
+  color: var(--cyan);
+}
+
+.btn-liquid .liquid {
+  position: absolute;
+  z-index: -1;
+  left: -50%;
+  top: 110%;
+  width: 200%;
+  aspect-ratio: 1;
+  border-radius: 42%;
+  background: var(--cyan);
+  animation: spinWave 5s linear infinite;
+  transition: top 0.8s cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+.btn-liquid:hover,
+.btn-liquid:focus-visible {
+  color: #06212a;
+}
+
+.btn-liquid:hover .liquid,
+.btn-liquid:focus-visible .liquid {
+  top: -90%;
+}
+
+@keyframes spinWave {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 05 · Loading → success */
+.btn-submit {
+  display: grid;
+  min-width: 150px;
+  background: var(--green);
+  color: #052e12;
+  box-shadow: 0 10px 30px -12px rgba(34, 197, 94, 0.8);
+}
+
+.btn-submit .state {
+  grid-area: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.btn-submit .loading,
+.btn-submit .done {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.btn-submit.is-loading .idle,
+.btn-submit.is-done .idle {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+.btn-submit.is-loading .loading,
+.btn-submit.is-done .done {
+  opacity: 1;
+  transform: none;
+}
+
+.btn-submit.is-done {
+  background: #16a34a;
+  color: #fff;
+}
+
+.btn-submit svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+}
+
+.btn-submit.is-done svg {
+  animation: draw 0.4s 0.15s ease forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.spin {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(5, 46, 18, 0.25);
+  border-top-color: #052e12;
+  border-radius: 50%;
+  animation: spinWave 0.7s linear infinite;
+}
+
+/* 06 · Spinning conic-gradient border */
+.btn-border {
+  padding: 2px;
+  background: conic-gradient(from var(--angle), var(--pink), var(--violet), var(--cyan), var(--pink));
+  animation: rotateAngle 3s linear infinite;
+}
+
+.btn-border span {
+  display: block;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: var(--tile);
+  transition: background 0.3s;
+}
+
+.btn-border:hover span {
+  background: rgba(20, 22, 31, 0.6);
+}
+
+@keyframes rotateAngle {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* 07 · 3D push */
+.btn-push {
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  background: #a3173a;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-push .front {
+  display: block;
+  padding: 14px 30px;
+  border-radius: 14px;
+  background: var(--red);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  transform: translateY(-6px);
+  transition: transform 0.25s cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.btn-push:hover .front {
+  transform: translateY(-8px);
+}
+
+.btn-push:active .front,
+.btn-push.is-pressed .front {
+  transform: translateY(-2px);
+  transition-duration: 0.05s;
+}
+
+/* 08 · Neon */
+.btn-neon {
+  border: 2px solid #5ef1ff;
+  background: transparent;
+  color: #5ef1ff;
+  text-shadow: 0 0 8px rgba(94, 241, 255, 0.8);
+  box-shadow: 0 0 12px rgba(94, 241, 255, 0.5), inset 0 0 12px rgba(94, 241, 255, 0.3);
+  animation: neonPulse 2.4s ease-in-out infinite;
+}
+
+.btn-neon:hover {
+  background: #5ef1ff;
+  color: #04161a;
+  text-shadow: none;
+  box-shadow: 0 0 30px rgba(94, 241, 255, 0.9), 0 0 60px rgba(94, 241, 255, 0.5);
+}
+
+@keyframes neonPulse {
+  50% {
+    box-shadow: 0 0 24px rgba(94, 241, 255, 0.75), inset 0 0 18px rgba(94, 241, 255, 0.45);
+  }
+}
+
+/* 09 · Icon slide */
+.btn-arrow {
+  background: #f2f3f7;
+  color: #0c0d13;
+  padding-right: 22px;
+}
+
+.btn-arrow svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+.btn-arrow span {
+  transition: transform 0.3s cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+.btn-arrow:hover span {
+  transform: translateX(-4px);
+}
+
+.btn-arrow:hover svg {
+  transform: translateX(6px);
+}
+
+/* 10 · Confetti */
+.btn-confetti {
+  background: linear-gradient(135deg, #ffb020, #ff5e3a);
+  color: #2a0f00;
+  box-shadow: 0 10px 30px -12px rgba(255, 140, 40, 0.9);
+  overflow: visible;
+}
+
+.btn-confetti:active {
+  transform: scale(0.95);
+}
+
+.confetti {
+  position: fixed;
+  z-index: 50;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* 11 · Hold to confirm */
+.btn-hold {
+  border: 2px solid var(--red);
+  background: transparent;
+  color: var(--red);
+  user-select: none;
+}
+
+.btn-hold .hold-fill {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.btn-hold.is-holding .hold-fill {
+  transform: scaleX(1);
+  transition: transform var(--hold, 1.2s) linear;
+}
+
+.btn-hold.is-holding,
+.btn-hold.is-done {
+  color: #fff;
+}
+
+.btn-hold.is-done .hold-fill {
+  transform: scaleX(1);
+}
+
+.btn-hold.is-done {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+/* 12 · Copy */
+.btn-copy {
+  gap: 12px;
+  padding: 8px 8px 8px 14px;
+  border: 1px solid #2c3044;
+  background: #0f1118;
+}
+
+.btn-copy code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88rem;
+  color: #c7cbe0;
+}
+
+.copy-label {
+  min-width: 84px;
+  padding: 7px 12px;
+  border-radius: 9px;
+  background: #23263a;
+  font-size: 0.85rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-copy.is-copied .copy-label {
+  background: var(--green);
+  color: #052e12;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1020px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

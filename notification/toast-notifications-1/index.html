@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toast Notifications | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <main class="page">
+      <header class="intro">
+        <span class="eyebrow">Notification &amp; Toast</span>
+        <h1>Toasts people <span>actually notice</span></h1>
+        <p>Four types, promise toasts, undo actions and six positions. Hover to pause, swipe to dismiss.</p>
+      </header>
+
+      <section class="playground">
+        <div class="group">
+          <h2>Fire a toast</h2>
+          <div class="fire">
+            <button type="button" class="fire-btn success" data-demo="success"><i></i>Success</button>
+            <button type="button" class="fire-btn error" data-demo="error"><i></i>Error</button>
+            <button type="button" class="fire-btn warning" data-demo="warning"><i></i>Warning</button>
+            <button type="button" class="fire-btn info" data-demo="info"><i></i>Info</button>
+            <button type="button" class="fire-btn promise" data-demo="promise"><i></i>Promise</button>
+            <button type="button" class="fire-btn undo" data-demo="undo"><i></i>With undo</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>Position</h2>
+          <div class="positions" role="radiogroup" aria-label="Toast position">
+            <button type="button" role="radio" data-pos="top-left" aria-label="Top left"></button>
+            <button type="button" role="radio" data-pos="top-center" aria-label="Top center"></button>
+            <button type="button" role="radio" data-pos="top-right" aria-label="Top right"></button>
+            <button type="button" role="radio" data-pos="bottom-left" aria-label="Bottom left"></button>
+            <button type="button" role="radio" data-pos="bottom-center" aria-label="Bottom center"></button>
+            <button type="button" role="radio" data-pos="bottom-right" aria-label="Bottom right" aria-checked="true"></button>
+          </div>
+        </div>
+
+        <pre class="code"><code>toast.success("Changes saved", "Your profile is up to date.");
+toast.promise(upload(), { loading: "Uploading…", success: "Uploaded!" });</code></pre>
+      </section>
+    </main>
+
+    <!-- Toasts live here -->
+    <section class="toaster bottom-right" id="toaster" aria-live="polite" aria-label="Notifications"></section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

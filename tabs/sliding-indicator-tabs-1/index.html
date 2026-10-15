@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sliding Indicator Tabs | MetaSkillGroup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- created by metaskillgroup-team -->
+    <main class="page">
+      <header class="intro">
+        <span class="eyebrow">Tabs</span>
+        <h1>Tabs with a <span>sliding</span> indicator</h1>
+        <p>Three styles, one tiny script. Click, or use <kbd>←</kbd> <kbd>→</kbd> <kbd>Home</kbd> <kbd>End</kbd> on the keyboard.</p>
+      </header>
+
+      <!-- Variant 1: segmented pill + direction-aware panels -->
+      <section class="demo">
+        <h2 class="demo-title">01 · Segmented pill</h2>
+        <div class="tabs tabs-pill" data-tabs>
+          <div class="tablist" role="tablist" aria-label="Product sections">
+            <button role="tab" class="tab" aria-selected="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h6V4H4zM14 20h6v-9h-6zM14 4v4h6V4zM4 20h6v-4H4z" /></svg>
+              Overview
+            </button>
+            <button role="tab" class="tab" aria-selected="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L4 14h7l-1 7 9-11h-7z" /></svg>
+              Features
+            </button>
+            <button role="tab" class="tab" aria-selected="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2" /></svg>
+              Analytics
+            </button>
+            <button role="tab" class="tab" aria-selected="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" /></svg>
+              Settings
+            </button>
+            <span class="indicator" aria-hidden="true"></span>
+          </div>
+
+          <div class="panels">
+            <div role="tabpanel" class="panel">
+              <div class="panel-copy">
+                <h3>Everything at a glance</h3>
+                <p>A calm dashboard that shows what matters today — tasks, deadlines and the people waiting on you.</p>
+                <ul><li>Smart daily summary</li><li>Drag-and-drop widgets</li><li>Works on every device</li></ul>
+              </div>
+              <div class="panel-art art-overview" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div role="tabpanel" class="panel" hidden>
+              <div class="panel-copy">
+                <h3>Built for speed</h3>
+                <p>Keyboard-first, instant search and offline sync. Everything feels like it happens before you click.</p>
+                <ul><li>Command palette (⌘K)</li><li>Realtime collaboration</li><li>40+ integrations</li></ul>
+              </div>
+              <div class="panel-art art-features" aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
+            <div role="tabpanel" class="panel" hidden>
+              <div class="panel-copy">
+                <h3>Numbers that make sense</h3>
+                <p>Clear charts with plain-language insights, so you know what changed and why — no data team needed.</p>
+                <ul><li>Weekly trend reports</li><li>Goal tracking</li><li>Export to CSV / PDF</li></ul>
+              </div>
+              <div class="panel-art art-analytics" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div role="tabpanel" class="panel" hidden>
+              <div class="panel-copy">
+                <h3>Make it yours</h3>
+                <p>Themes, roles, notifications and shortcuts — tune every detail without ever touching code.</p>
+                <ul><li>Light, dark &amp; system theme</li><li>Granular permissions</li><li>Custom shortcuts</li></ul>
+              </div>
+              <div class="panel-art art-settings" aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="demo-row">
+        <!-- Variant 2: elastic underline -->
+        <section class="demo">
+          <h2 class="demo-title">02 · Elastic underline</h2>
+          <div class="tabs tabs-line" data-tabs>
+            <div class="tablist" role="tablist" aria-label="Account">
+              <button role="tab" class="tab" aria-selected="true">Profile</button>
+              <button role="tab" class="tab" aria-selected="false">Notifications</button>
+              <button role="tab" class="tab" aria-selected="false">Billing</button>
+              <span class="indicator" aria-hidden="true"></span>
+            </div>
+            <div class="panels">
+              <div role="tabpanel" class="panel mini">
+                <p><b>Profile</b> — update your photo, name and the short bio people see on your public page.</p>
+              </div>
+              <div role="tabpanel" class="panel mini" hidden>
+                <p><b>Notifications</b> — choose what reaches your inbox, phone or nowhere at all.</p>
+              </div>
+              <div role="tabpanel" class="panel mini" hidden>
+                <p><b>Billing</b> — manage your plan, payment method and download every invoice.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Variant 3: vertical -->
+        <section class="demo">
+          <h2 class="demo-title">03 · Vertical</h2>
+          <div class="tabs tabs-vertical" data-tabs data-orientation="vertical">
+            <div class="tablist" role="tablist" aria-label="Help topics" aria-orientation="vertical">
+              <button role="tab" class="tab" aria-selected="true">Getting started</button>
+              <button role="tab" class="tab" aria-selected="false">Shortcuts</button>
+              <button role="tab" class="tab" aria-selected="false">Teams</button>
+              <span class="indicator" aria-hidden="true"></span>
+            </div>
+            <div class="panels">
+              <div role="tabpanel" class="panel mini">
+                <p>Create your first project, invite a teammate and you're set up in under two minutes.</p>
+              </div>
+              <div role="tabpanel" class="panel mini" hidden>
+                <p>Press <kbd>⌘</kbd> <kbd>K</kbd> to open the command palette and reach anything instantly.</p>
+              </div>
+              <div role="tabpanel" class="panel mini" hidden>
+                <p>Group people into teams, share boards and set who can view, edit or manage each one.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
